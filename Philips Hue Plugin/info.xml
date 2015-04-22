@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<c2addon>
+	<!-- One of: plugin, behavior, effect -->
+	<type>plugin</type>
+
+	<name>Philips Hue API</name>
+	<version>0.1</version>
+	<author>Pascal Drewes</author>
+	<website>https://github.com/INF1B-Project-Inovate</website>
+	<documentation>https://github.com/INF1B-Project-Inovate/game</documentation>
+	<description>This plugin controls Philips Hues Lights</description>
+</c2addon>
