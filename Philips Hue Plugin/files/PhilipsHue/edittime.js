@@ -55,7 +55,34 @@
 //				script_name);		// corresponding runtime function name
 
 // example
-AddCondition(0, cf_none, "Check if Philips Hue Bridge is connected", "Philips Hue API", "Is Hue Connected", "This condition evaluates if the Philips Hue bridge is connected or not.", "isHueConnected");
+AddCondition(0, cf_none, 	"Is the Hue bridge connected", 
+							"Bridge", 
+							"Is Hue Bridge connected", 
+							"Check of de Hue bridge verbonden is of niet", 
+							"isBridgeConnected");
+
+AddCondition(1, cf_none, 	"Is the game user whitelisted", 
+							"Bridge", "Has Bridge permission", 
+							"Check of er permissie is om bepaalde acties uit te voeren (zoals lampen besturen)", 
+							"isWhitelisted");
+							
+AddCondition(2, cf_trigger, "Trigger when list of lights is recieved", 
+							"Bridge", 
+							"Light list recieved", 
+							"Door middel van deze trigger weet de rest van de applicatie wanneer het de lijst van lampen kan weergeven zodat deze ingesteld kunnen worden voor gebruik", 
+							"lightListRecieved");
+
+							
+AddComboParamOption("Mono (1)");
+AddComboParamOption("Stereo (2)");
+AddComboParamOption("Trio (3)");
+AddComboParam("Choose a lightmode", "Controle of deze specifieke lamp(en) beschikbaar is/zijn om waardes naar toe te sturen. In mono modus is alleen de middelste lamp beschikbaar, in stereo modus zijn de buitenste twee lampen beschikbaar en in trio modus zijn alle 3 de lampen beschikbaar", initial_selection = 2);
+
+AddCondition(3, cf_none, 	"Which lights are available", 
+							"Lights", 
+							"Is in light mode {0}", 
+							"Controle of deze specifieke lamp(en) beschikbaar is/zijn om waardes naar toe te sturen. In mono modus is alleen de middelste lamp beschikbaar, in stereo modus zijn de buitenste twee lampen beschikbaar en in trio modus zijn alle 3 de lampen beschikbaar", 
+							"inLightMode");	
 
 ////////////////////////////////////////
 // Actions
@@ -72,8 +99,42 @@ AddCondition(0, cf_none, "Check if Philips Hue Bridge is connected", "Philips Hu
 // AddStringParam("Message", "Enter a string to alert.");
 // AddAction(0, af_none, "Alert", "My category", "Alert {0}", "Description for my action!", "MyAction");
 
-AddAction(0, af_none, "Establish connection", "Hue Bridge", "Connect to Hue Bridge", "This action discovers the IP of the Hue bridge and requests a list of all lights", "connectHueBridge");
+AddStringParam("IP-adres Hue Bridge", "IP-adres van de Hue Bridge (plaats <auto> voor automatische discovery)", initial_string="PhilipsHueAPI.BridgeIP");
+AddAction(0, af_none,	"Connect Hue Bridge",
+						"Bridge",
+						"Connect to bridge on IP {0}",
+						"Deze functie zoekt naar een Philips Hue bridge op het lokale netwerk. Zodra deze gevonden is slaat hij het IP-adres op en probeert hij toegang te krijgen ",
+						"connectHueBridge");
 
+AddAction(1, af_none, 	"Gain permission on the bridge",
+						"Bridge",
+						"Gain permission on the bridge",
+						"Registreer een nieuwe gebruiker op de Philips Hue bridge om lampen mee aan te sturen",
+						"gainPermission");
+
+AddNumberParam("Lamp ID", "The ID of the lamp which should go into a slot");
+AddComboParamOption("Left");
+AddComboParamOption("Middle");
+AddComboParamOption("Right");
+AddComboParam("Choose a slot to set", "Choose a slot to set a specific lamp to");
+AddAction(2, af_none, 	"Set a light to a specific slot",
+						"Bridge",
+						"Set light {0} to slot {1}",
+						"Deze functie zet een lamp in een van de drie slots zodat het refereren naar deze lamp makkelijker gaat",
+						"setLightSlot");
+
+AddComboParamOption("Left");
+AddComboParamOption("Middle");
+AddComboParamOption("Right");
+AddComboParam("Choose a slot", "Choose a slot to send a specific Color to");
+AddNumberParam("Hue", "The Color Hue (between 0 & 65535):");
+AddNumberParam("Saturation", "The Color saturation (between 0 & 254):");
+AddNumberParam("Brightness", "The brightness of the light (between 0 & 254):");
+AddAction(3, af_none, 	"Set a light to a specific Color",
+						"Light",
+						"Set light {0} to H:{1},S:{2},B:{3}",
+						"Met deze functie is het mogelijk om een lamp een kleur, verzadiging en helderheid mee te geven",
+						"setLightColor");
 
 ////////////////////////////////////////
 // Expressions
@@ -87,7 +148,7 @@ AddAction(0, af_none, "Establish connection", "Hue Bridge", "Connect to Hue Brid
 //				 description);	// description in expressions panel
 
 // example
-AddExpression(0, ef_return_number, "Leet expression", "My category", "MyExpression", "Return the number 1337.");
+AddExpression(0, ef_return_string, "IP adres of bridge", "Bridge", "BridgeIP", "Return the bridge IP adres");
 
 ////////////////////////////////////////
 ACESDone();
@@ -103,7 +164,7 @@ ACESDone();
 // new cr.Property(ept_link,		name,	link_text,		description, "firstonly")		// has no associated value; simply calls "OnPropertyChanged" on click
 
 var property_list = [
-	new cr.Property(ept_text, 	"Hue Bridge IP",		"<auto>",		"This specifies the Hue Bridge IP, type <auto> for automatic discovery.")
+	//new cr.Property(ept_text, 	"Hue Bridge IP",		"<auto>",		"This specifies the Hue Bridge IP, type <auto> for automatic discovery.")
 	];
 
 // Called by IDE when a new object type is to be created

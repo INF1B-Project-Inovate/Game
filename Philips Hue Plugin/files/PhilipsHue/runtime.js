@@ -43,7 +43,9 @@ cr.plugins_.PhilipsHue = function(runtime)
 		this.runtime = type.runtime;
 
 		// any other properties you need, e.g...
-		this.isHueConnected = false;
+		this.isBridgeConnected = false;
+		this.BridgeIP = "<auto>";
+		this.isWhitelisted = false;
 		this.hueLights = {};
 	};
 
@@ -54,7 +56,6 @@ cr.plugins_.PhilipsHue = function(runtime)
 	{
 		// note the object is sealed after this call; ensure any properties you'll ever need are set on the object
 		// e.g...
-		// this.myValue = 0;
 	};
 
 	// only called if a layout object - draw to a canvas 2D context
@@ -74,8 +75,19 @@ cr.plugins_.PhilipsHue = function(runtime)
 	function Cnds() {};
 
 	// the example condition
-	Cnds.prototype.isHueConnected = function ()
+	Cnds.prototype.isBridgeConnected = function ()
 	{
+		return this.isBridgeConnected;
+	};
+	
+	Cnds.prototype.isWhitelisted = function ()
+	{
+		return this.isWhitelisted;
+	};
+	
+	Cnds.prototype.inLightMode = function ()
+	{
+		alert("Not implemented");
 		return this.isHueConnected;
 	};
 
@@ -88,10 +100,24 @@ cr.plugins_.PhilipsHue = function(runtime)
 	function Acts() {};
 
 	// the example action
-	Acts.prototype.connectHueBridge = function (myparam)
+	Acts.prototype.connectHueBridge = function (ip)
 	{
-		// alert the message
+		alert("Not yet implemented + IP: '" + ip + "'");
+	};
+	
+	Acts.prototype.gainPermission = function ()
+	{
 		alert("Not yet implemented");
+	};
+	
+	Acts.prototype.setLightSlot = function (lampID, lampSlot)
+	{
+		alert("Not yet implemented + ID: '" + lampID + "' + lampSlot: '" + lampSlot + "'");
+	};
+	
+	Acts.prototype.setLightColor = function (lampSlot, Hue, Saturation, Brightness)
+	{
+		alert("Not yet implemented + Slot: '" + lampSlot + "' + HSB:" + Hue + "-" + Saturation + "-" + Brightness);
 	};
 
 	// ... other actions here ...
@@ -103,11 +129,11 @@ cr.plugins_.PhilipsHue = function(runtime)
 	function Exps() {};
 
 	// the example expression
-	Exps.prototype.MyExpression = function (ret)	// 'ret' must always be the first parameter - always return the expression's result through it!
+	Exps.prototype.BridgeIP = function (ret)	// 'ret' must always be the first parameter - always return the expression's result through it!
 	{
-		ret.set_int(1337);				// return our value
+		//ret.set_int(1337);				// return our value
 		// ret.set_float(0.5);			// for returning floats
-		// ret.set_string("Hello");		// for ef_return_string
+		ret.set_string(this.BridgeIP);		// for ef_return_string
 		// ret.set_any("woo");			// for ef_return_any, accepts either a number or string
 	};
 
