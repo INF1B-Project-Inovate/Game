@@ -1,30 +1,29 @@
-﻿function GetPluginSettings()
-{
-	return {
-		"name":			"Philips Hue API",				// as appears in 'insert object' dialog, can be changed as long as "id" stays the same
-		"id":			"PhilipsHue",				// this is used to identify this plugin and is saved to the project; never change it
-		"version":		"0.1",					// (float in x.y format) Plugin version - C2 shows compatibility warnings based on this
-		"description":	"This plugin controls Philips Hues Lights",
-		"author":		"Pascal Drewes - Stenden University - INF1B",
-		"help url":		"https://github.com/INF1B-Project-Inovate/game",
-		"category":		"General",				// Prefer to re-use existing categories, but you can set anything here
-		"type":			"object",				// either "world" (appears in layout and is drawn), else "object"
-		"rotatable":	true,					// only used when "type" is "world".  Enables an angle property on the object.
-		"flags":		0						// uncomment lines to enable flags...
+﻿function GetPluginSettings() {
+    return {
+        "name": "Philips Hue API",				// as appears in 'insert object' dialog, can be changed as long as "id" stays the same
+        "id": "PhilipsHue",				// this is used to identify this plugin and is saved to the project; never change it
+        "version": "0.1",					// (float in x.y format) Plugin version - C2 shows compatibility warnings based on this
+        "description": "This plugin controls Philips Hues Lights",
+        "author": "Pascal Drewes - Stenden University - INF1B",
+        "help url": "https://github.com/INF1B-Project-Inovate/game",
+        "category": "General",				// Prefer to re-use existing categories, but you can set anything here
+        "type": "object",				// either "world" (appears in layout and is drawn), else "object"
+        "rotatable": true,					// only used when "type" is "world".  Enables an angle property on the object.
+        "flags": 0						// uncomment lines to enable flags...
 						| pf_singleglobal		// exists project-wide, e.g. mouse, keyboard.  "type" must be "object".
-					//	| pf_texture			// object has a single texture (e.g. tiled background)
-					//	| pf_position_aces		// compare/set/get x, y...
-					//	| pf_size_aces			// compare/set/get width, height...
-					//	| pf_angle_aces			// compare/set/get angle (recommended that "rotatable" be set to true)
-					//	| pf_appearance_aces	// compare/set/get visible, opacity...
-					//	| pf_tiling				// adjusts image editor features to better suit tiled images (e.g. tiled background)
-					//	| pf_animations			// enables the animations system.  See 'Sprite' for usage
-					//	| pf_zorder_aces		// move to top, bottom, layer...
-					//  | pf_nosize				// prevent resizing in the editor
-					//	| pf_effects			// allow WebGL shader effects to be added
-					//  | pf_predraw			// set for any plugin which draws and is not a sprite (i.e. does not simply draw
-												// a single non-tiling image the size of the object) - required for effects to work properly
-	};
+        //	| pf_texture			// object has a single texture (e.g. tiled background)
+        //	| pf_position_aces		// compare/set/get x, y...
+        //	| pf_size_aces			// compare/set/get width, height...
+        //	| pf_angle_aces			// compare/set/get angle (recommended that "rotatable" be set to true)
+        //	| pf_appearance_aces	// compare/set/get visible, opacity...
+        //	| pf_tiling				// adjusts image editor features to better suit tiled images (e.g. tiled background)
+        //	| pf_animations			// enables the animations system.  See 'Sprite' for usage
+        //	| pf_zorder_aces		// move to top, bottom, layer...
+        //  | pf_nosize				// prevent resizing in the editor
+        //	| pf_effects			// allow WebGL shader effects to be added
+        //  | pf_predraw			// set for any plugin which draws and is not a sprite (i.e. does not simply draw
+        // a single non-tiling image the size of the object) - required for effects to work properly
+    };
 };
 
 ////////////////////////////////////////
@@ -55,34 +54,47 @@
 //				script_name);		// corresponding runtime function name
 
 // example
-AddCondition(0, cf_none, 	"Is the Hue bridge connected", 
-							"Bridge", 
-							"Is Hue Bridge connected", 
-							"Check of de Hue bridge verbonden is of niet", 
+AddCondition(0, cf_none, "Is the Hue bridge connected",
+							"Bridge",
+							"Is Hue Bridge connected",
+							"Check of de Hue bridge verbonden is of niet",
 							"isBridgeConnected");
 
-AddCondition(1, cf_none, 	"Is the game user whitelisted", 
-							"Bridge", "Has Bridge permission", 
-							"Check of er permissie is om bepaalde acties uit te voeren (zoals lampen besturen)", 
+AddCondition(1, cf_none, "Is the game user whitelisted",
+							"Bridge",
+                            "Has Bridge permission",
+							"Check of er permissie is om bepaalde acties uit te voeren (zoals lampen besturen)",
 							"isWhitelisted");
-							
-AddCondition(2, cf_trigger, "Trigger when list of lights is recieved", 
-							"Bridge", 
-							"Light list recieved", 
-							"Door middel van deze trigger weet de rest van de applicatie wanneer het de lijst van lampen kan weergeven zodat deze ingesteld kunnen worden voor gebruik", 
+
+AddCondition(2, cf_trigger, "Trigger when list of lights is recieved",
+							"Bridge",
+							"Light list recieved",
+							"Door middel van deze trigger weet de rest van de applicatie wanneer het de lijst van lampen kan weergeven zodat deze ingesteld kunnen worden voor gebruik",
 							"lightListRecieved");
 
-							
+
 AddComboParamOption("Mono (1)");
 AddComboParamOption("Stereo (2)");
 AddComboParamOption("Trio (3)");
 AddComboParam("Choose a lightmode", "Controle of deze specifieke lamp(en) beschikbaar is/zijn om waardes naar toe te sturen. In mono modus is alleen de middelste lamp beschikbaar, in stereo modus zijn de buitenste twee lampen beschikbaar en in trio modus zijn alle 3 de lampen beschikbaar", initial_selection = 2);
 
-AddCondition(3, cf_none, 	"Which lights are available", 
-							"Lights", 
-							"Is in light mode {0}", 
-							"Controle of deze specifieke lamp(en) beschikbaar is/zijn om waardes naar toe te sturen. In mono modus is alleen de middelste lamp beschikbaar, in stereo modus zijn de buitenste twee lampen beschikbaar en in trio modus zijn alle 3 de lampen beschikbaar", 
-							"inLightMode");	
+AddCondition(3, cf_none, "Which lights are available",
+							"Lights",
+							"Is in light mode {0}",
+							"Controle of deze specifieke lamp(en) beschikbaar is/zijn om waardes naar toe te sturen. In mono modus is alleen de middelste lamp beschikbaar, in stereo modus zijn de buitenste twee lampen beschikbaar en in trio modus zijn alle 3 de lampen beschikbaar",
+							"inLightMode");
+
+AddCondition(4, cf_trigger, "Trigger when autoconnect failed",
+							"Bridge",
+							"Autoconnect failed",
+							"Trigger wanneer de auto connect geen Hue Bridge heeft gevonden",
+							"trigAutoConnectFailed");
+
+AddCondition(5, cf_trigger, "Trigger when manual connect failed",
+							"Bridge",
+							"Manual connect failed",
+							"Trigger wanneer de manual connect geen response heeft op het ingevulde IP adres",
+							"trigManConnectFailed");
 
 ////////////////////////////////////////
 // Actions
@@ -99,14 +111,14 @@ AddCondition(3, cf_none, 	"Which lights are available",
 // AddStringParam("Message", "Enter a string to alert.");
 // AddAction(0, af_none, "Alert", "My category", "Alert {0}", "Description for my action!", "MyAction");
 
-AddStringParam("IP-adres Hue Bridge", "IP-adres van de Hue Bridge (plaats <auto> voor automatische discovery)", initial_string="PhilipsHueAPI.BridgeIP");
-AddAction(0, af_none,	"Connect Hue Bridge",
+AddStringParam("IP-adres Hue Bridge", "IP-adres van de Hue Bridge (plaats <auto> voor automatische discovery)", initial_string = "PhilipsHueAPI.BridgeIP");
+AddAction(0, af_none, "Connect Hue Bridge",
 						"Bridge",
 						"Connect to bridge on IP {0}",
 						"Deze functie zoekt naar een Philips Hue bridge op het lokale netwerk. Zodra deze gevonden is slaat hij het IP-adres op en probeert hij toegang te krijgen ",
 						"connectHueBridge");
 
-AddAction(1, af_none, 	"Gain permission on the bridge",
+AddAction(1, af_none, "Gain permission on the bridge",
 						"Bridge",
 						"Gain permission on the bridge",
 						"Registreer een nieuwe gebruiker op de Philips Hue bridge om lampen mee aan te sturen",
@@ -117,7 +129,7 @@ AddComboParamOption("Left");
 AddComboParamOption("Middle");
 AddComboParamOption("Right");
 AddComboParam("Choose a slot to set", "Choose a slot to set a specific lamp to");
-AddAction(2, af_none, 	"Set a light to a specific slot",
+AddAction(2, af_none, "Set a light to a specific slot",
 						"Bridge",
 						"Set light {0} to slot {1}",
 						"Deze functie zet een lamp in een van de drie slots zodat het refereren naar deze lamp makkelijker gaat",
@@ -130,7 +142,7 @@ AddComboParam("Choose a slot", "Choose a slot to send a specific Color to");
 AddNumberParam("Hue", "The Color Hue (between 0 & 65535):");
 AddNumberParam("Saturation", "The Color saturation (between 0 & 254):");
 AddNumberParam("Brightness", "The brightness of the light (between 0 & 254):");
-AddAction(3, af_none, 	"Set a light to a specific Color",
+AddAction(3, af_none, "Set a light to a specific Color",
 						"Light",
 						"Set light {0} to H:{1},S:{2},B:{3}",
 						"Met deze functie is het mogelijk om een lamp een kleur, verzadiging en helderheid mee te geven",
@@ -148,7 +160,20 @@ AddAction(3, af_none, 	"Set a light to a specific Color",
 //				 description);	// description in expressions panel
 
 // example
-AddExpression(0, ef_return_string, "IP adres of bridge", "Bridge", "BridgeIP", "Return the bridge IP adres");
+AddExpression(0, ef_return_string, "(Boolean) Is bridge connected?",
+    "Bridge",
+    "isBridgeConnected",
+    "Geeft een boolean terug die aangeeft of de Hue bridge verbonden is");
+
+AddExpression(1, ef_return_string, "(Boolean) Is bridgeUser whitelisted?",
+    "Bridge",
+    "isWhitelisted",
+    "Geeft een boolean terug of er permissie is om bepaalde acties uit te voeren");
+
+AddExpression(2, ef_return_string, "(JSON) All available lights",
+    "Lights",
+    "lights",
+    "Een JSON string met alle beschikbare lampen");
 
 ////////////////////////////////////////
 ACESDone();
@@ -165,71 +190,61 @@ ACESDone();
 
 var property_list = [
 	//new cr.Property(ept_text, 	"Hue Bridge IP",		"<auto>",		"This specifies the Hue Bridge IP, type <auto> for automatic discovery.")
-	];
+];
 
 // Called by IDE when a new object type is to be created
-function CreateIDEObjectType()
-{
-	return new IDEObjectType();
+function CreateIDEObjectType() {
+    return new IDEObjectType();
 }
 
 // Class representing an object type in the IDE
-function IDEObjectType()
-{
-	assert2(this instanceof arguments.callee, "Constructor called as a function");
+function IDEObjectType() {
+    assert2(this instanceof arguments.callee, "Constructor called as a function");
 }
 
 // Called by IDE when a new object instance of this type is to be created
-IDEObjectType.prototype.CreateInstance = function(instance)
-{
-	return new IDEInstance(instance);
+IDEObjectType.prototype.CreateInstance = function (instance) {
+    return new IDEInstance(instance);
 }
 
 // Class representing an individual instance of an object in the IDE
-function IDEInstance(instance, type)
-{
-	assert2(this instanceof arguments.callee, "Constructor called as a function");
+function IDEInstance(instance, type) {
+    assert2(this instanceof arguments.callee, "Constructor called as a function");
 
-	// Save the constructor parameters
-	this.instance = instance;
-	this.type = type;
+    // Save the constructor parameters
+    this.instance = instance;
+    this.type = type;
 
-	// Set the default property values from the property table
-	this.properties = {};
+    // Set the default property values from the property table
+    this.properties = {};
 
-	for (var i = 0; i < property_list.length; i++)
-		this.properties[property_list[i].name] = property_list[i].initial_value;
+    for (var i = 0; i < property_list.length; i++)
+        this.properties[property_list[i].name] = property_list[i].initial_value;
 
-	// Plugin-specific variables
-	// this.myValue = 0...
+    // Plugin-specific variables
+    // this.myValue = 0...
 }
 
 // Called when inserted via Insert Object Dialog for the first time
-IDEInstance.prototype.OnInserted = function()
-{
+IDEInstance.prototype.OnInserted = function () {
 }
 
 // Called when double clicked in layout
-IDEInstance.prototype.OnDoubleClicked = function()
-{
+IDEInstance.prototype.OnDoubleClicked = function () {
 }
 
 // Called after a property has been changed in the properties bar
-IDEInstance.prototype.OnPropertyChanged = function(property_name)
-{
+IDEInstance.prototype.OnPropertyChanged = function (property_name) {
 }
 
 // For rendered objects to load fonts or textures
-IDEInstance.prototype.OnRendererInit = function(renderer)
-{
+IDEInstance.prototype.OnRendererInit = function (renderer) {
 }
 
 // Called to draw self in the editor if a layout object
-IDEInstance.prototype.Draw = function(renderer)
-{
+IDEInstance.prototype.Draw = function (renderer) {
 }
 
 // For rendered objects to release fonts or textures
-IDEInstance.prototype.OnRendererReleased = function(renderer)
-{
+IDEInstance.prototype.OnRendererReleased = function (renderer) {
 }
