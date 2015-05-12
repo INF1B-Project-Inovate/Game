@@ -96,6 +96,18 @@ AddCondition(5, cf_trigger, "Trigger when manual connect failed",
 							"Trigger wanneer de manual connect geen response heeft op het ingevulde IP adres",
 							"trigManConnectFailed");
 
+AddCondition(6, cf_trigger, "Trigger when link button must be pressed",
+                            "Bridge",
+                            "Link button must be pressed",
+                            "Trigger wanneer de gebruiker op de link knop moet drukken",
+                            "trigLinkButton");
+
+AddCondition(7, cf_trigger, "Trigger when connect succeeded",
+                            "Bridge",
+                            "Connect succeeded",
+                            "Trigger wanneer de connect positief is afgerond",
+                            'trigConnectSucceeded');
+
 ////////////////////////////////////////
 // Actions
 
@@ -111,12 +123,12 @@ AddCondition(5, cf_trigger, "Trigger when manual connect failed",
 // AddStringParam("Message", "Enter a string to alert.");
 // AddAction(0, af_none, "Alert", "My category", "Alert {0}", "Description for my action!", "MyAction");
 
-AddStringParam("IP-adres Hue Bridge", "IP-adres van de Hue Bridge (plaats <auto> voor automatische discovery)", initial_string = "PhilipsHueAPI.BridgeIP");
+AddStringParam("IP-adres Hue Bridge", "IP-adres van de Hue Bridge");
 AddAction(0, af_none, "Connect Hue Bridge",
 						"Bridge",
 						"Connect to bridge on IP {0}",
-						"Deze functie zoekt naar een Philips Hue bridge op het lokale netwerk. Zodra deze gevonden is slaat hij het IP-adres op en probeert hij toegang te krijgen ",
-						"connectHueBridge");
+						"Deze functie maakt verbinding met de Hue bridge op het opgegeven IP adres",
+						"manualConnectHueBridge");
 
 AddAction(1, af_none, "Gain permission on the bridge",
 						"Bridge",
@@ -147,6 +159,12 @@ AddAction(3, af_none, "Set a light to a specific Color",
 						"Set light {0} to H:{1},S:{2},B:{3}",
 						"Met deze functie is het mogelijk om een lamp een kleur, verzadiging en helderheid mee te geven",
 						"setLightColor");
+
+AddAction(0, af_none, "Auto connect Hue Bridge",
+                        "Bridge",
+                        "Auto connect bridge",
+                        "Deze functie maakt verbinding met de Hue bridge door het IP adres te zoeken",
+                        "autoConnectHueBridge");
 
 ////////////////////////////////////////
 // Expressions

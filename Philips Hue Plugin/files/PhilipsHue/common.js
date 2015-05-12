@@ -1,127 +1,130 @@
-﻿// Let op, dit is allemaal geript en kapot. HET WERKT NIET!
-
 function MeetHueLookup() {
     console.log('PhilipsHue :: MeetHue NUPNP lookup startet');
-    $.ajax('http://www.meethue.com/api/nupnp', {
+    $.ajax('https://www.meethue.com/api/nupnp', {
         type: 'GET',
         dataType: 'json',
         crossDomain: true,
-        timeout: 500,
         success: function (data) {
-            console.log('PhilipsHue :: apiLocalIpLookup');
+            console.log("MeetHueLookup:: success");
             console.log(data);
-            //console.log('Error in data: '+(data[0].hasOwnProperty("error")));
-
+            if(data.length == 1) {
+                this.bridgeIP = data[0].internalipaddress;
+                this.isBridgeConnected = true;
+                return true;
+            } else {
+                return false;
+            }
+            
         },
         error: function (data) {
+            console.log("MeetHueLookup:: error");
             console.log('error: ', data);
-            //console.log(data);		 
+            return false; 
         },
         statusCode: {
             404: function () {
-                // console.log("Not found: "+ip);
+                console.log("MeetHueLookup:: not found 404");
+                return false;
             }
         }
     });
-
 }
 
-function hueFindRange(ip, continueAfter, percent, nointerval) {
-    // Connect
-    nointerval = nointerval;
-    var obj = new Object();
-    obj.username = username;
-    obj.devicetype = "Hue Connect API Client";
-    console.log('hueFindRange :: ' + ip);
-
-    if (!stopSearching) {
-        /*
-		$.mobile.loading( 'show', {
-			text: percent+'%',
-			textVisible: true,
-			theme: 'a',
-			html: '<p>Searching...</p><div class="percent-bar"><div class="percent" style="width: '+percent+'%;">'+percent+'%</div></div>'
-		});*/
-        $('.percent-bar').html('<div class="percent" style="width: ' + percent + '%;">' + percent + '%</div>');
-
-    }
-    $('#ip-lookup').html(ip);
-
-
-    $.ajax('http://' + ip + '/api/' + username, {
+function checkPermission() {
+    console.log("checkPermission:: url:");
+    console.log('http://' + this.bridgeIP + '/api/' + this.username);
+    $.ajax('http://' + this.bridgeIP + '/api/' + this.username, {
         type: 'GET',
-        timeout: 500,
         success: function (data) {
-
-            stopSearching = true;
-
-            console.log('Connect :: Check Hub : Username: ' + username);
+            console.log("CheckPermission:: response okay");
             console.log(data);
-            //console.log('Error in data: '+(data[0].hasOwnProperty("error")));
-            if (data[0] != undefined) {
-                if (data[0].hasOwnProperty("error")) {
-                    console.log('ERROR from Hub :: HUE Found, press connect : ' + ip);
-                    console.log(data.error);
-                    connectHubPress(ip, continueAfter, percent, nointerval)
-                    //connectHubPress(ip, continueAfter, percent, nointerval)
+                //console.log('Error in data: '+(data[0].hasOwnProperty("error")));
 
+                if (data[0] != undefined) {
+                    if (data[0].hasOwnProperty("error")) {
+                        console.log("CheckPermission:: No permission, asking permission");
+                        console.log(data.error);
+                        
+                        var newUser = setInterval(function() {
+                            $.ajax('http://' + this.bridgeIP + '/api', {
+                                type: 'POST',
+                                dataType: 'json',
+                                data: JSON.stringify({
+                                    "devicetype": this.user,
+                                    "username": this.username
+                                }),
+                                success: function(data) {
+                                    console.log("CheckPermission:: asking permission success");
+                                    console.log(data);
+                                    if("success" in data[0] == true) {
+                                        this.runtime.trigger(trigConnectSucceeded, this);
+                                        clearInterval(newUser);
+                                    }
+                                },
+                                error: function(data) {
+                                    console.log("CheckPermission:: asking permission error");
+                                    console.log(data);
+                                }
+                            });
+                        }, 500);
+                        return "link";
+                    }
                 }
-            }
             if ("lights" in data == true) {
-                stopSearching = true;
-                console.log('SUCCESS Key exists :: data.lights: ' + username);
-                hueDevices(ip, obj.username);
+                console.log('SUCCESS Key exists :: data.lights: ' + this.username);
+                listLights();
             }
         },
         error: function (data) {
-            //console.log('Not found: '+ip);
-            if (stopSearching == false) {
-                hueFindNext();
-            }
-            //console.log(data);		 
+            return false;        
         },
         statusCode: {
             404: function () {
-                // console.log("Not found: "+ip);
+                return false;
             }
         }
     });
-
 }
 
-var currentIPRange = 1;
-var stopSearching = false;
-function hueFindNext() {
-    // 192.168.1.187	
+function listLights() {
+    $.ajax('http://' + this.bridgeIP + '/api/' + this.username + '/lights', {
+        type: 'GET',
+        success: function(data) {
+            console.log("listLights:: success");
+            console.log(data);
+            if(data.length != 0) {
+                $.each(data, function(i, val) {
+                    if(val.state.reachable == true) {
+                        lights.push(i);
+                        setColor(i);
+                    }
+                });
+            }
+        }, 
+        error: function(data) {
+            console.log("listLights:: error");
+            console.log(data);
+        }
+    });
+}
 
-    if (currentIPRange < 254 && settings == undefined && stopSearching == false) {
-        currentIPRange++;
-        hueFindRange('10.0.1.' + currentIPRange, stopSearching);
-        hueFindRange('10.0.0.' + currentIPRange, stopSearching);
-        hueFindRange('192.168.1.' + currentIPRange, stopSearching);
-        hueFindRange('192.168.123.' + currentIPRange, stopSearching);
-        hueFindRange('192.168.1.' + currentIPRange, stopSearching, Math.floor((currentIPRange / 254) * 100));
-        //$.mobile.loading('hide');
-
-    } else if (settings != undefined) {
-        console.log('Hue found: ' + settings.ip);
-        /*
-		hueFindComplete();
-		hueDevices(settings.ip, settings.username);
-		window.clearInterval(connectTimer);		
-		$.mobile.changePage( $("#lights"), "slide", true, true);
-		alert($('#lights'));
-		*/
-        //$.mobile.loading('hide');		
-
-    } else {
-        console.log('Hue not found...');
-        //$.mobile.loading('hide');
-        currentIPRange = 1;
-        stopSearching = true;
-
-        $.mobile.changePage($("#hub-not-found"), "slide", true, true);
-
-
-    }
+function setColor(light) {
+    $.ajax('http://' + this.bridgeIP + '/api/' + this.username + '/lights/' + light + '/state', {
+        type: 'PUT',
+        data: JSON.stringify({
+            "on": true,
+            "bri": 20,
+            "hue": 46920,
+            "sat": 254,
+            "transitiontime": 50
+        }),
+        success: function(data) {
+            console.log("setColor:: success");
+            console.log(data);
+        },
+        error: function(data) {
+            console.log("setColor:: error");
+            console.log(data);
+        }
+    });
 }

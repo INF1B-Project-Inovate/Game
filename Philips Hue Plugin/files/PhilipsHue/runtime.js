@@ -37,6 +37,9 @@ cr.plugins_.PhilipsHue = function (runtime) {
         this.type = type;
         this.runtime = type.runtime;
 
+        this.username = "NetHeroHueAPI";
+        this.user = "NetHeroAPI# Default user";
+
         // any other properties you need, e.g...
         this.isBridgeConnected = false;
         this.bridgeIP = "<auto>";
@@ -89,8 +92,20 @@ cr.plugins_.PhilipsHue = function (runtime) {
     function Acts() { };
 
     // the example action
-    Acts.prototype.autoConnectHueGridge = function () {
-        alert("Not yet implemented + IP: '" + ip + "'");
+    Acts.prototype.autoConnectHueBridge = function () {
+        if(MeetHueLookup()) {
+            switch(checkPermission()) {
+                case "link":
+                    this.runtime.trigger(trigLinkButton, this);
+                    break;
+                case false:
+                    console.log("checkPermission returned false");
+                    break;
+                default:
+                    console.log("Well... this shouldn't be happening. (checkPermission)");
+                    break;
+            }
+        }
     };
 
     Acts.prototype.manualConnectHueBridge = function (ip) {
