@@ -130,7 +130,7 @@ AddAction(0, af_none, "Connect Hue Bridge",
 						"Deze functie maakt verbinding met de Hue bridge op het opgegeven IP adres",
 						"manualConnectHueBridge");
 
-AddAction(1, af_none, "Gain permission on the bridge",
+AddAction(1, af_deprecated, "Gain permission on the bridge",
 						"Bridge",
 						"Gain permission on the bridge",
 						"Registreer een nieuwe gebruiker op de Philips Hue bridge om lampen mee aan te sturen",
@@ -154,9 +154,10 @@ AddComboParam("Choose a slot", "Choose a slot to send a specific Color to");
 AddNumberParam("Hue", "The Color Hue (between 0 & 65535):");
 AddNumberParam("Saturation", "The Color saturation (between 0 & 254):");
 AddNumberParam("Brightness", "The brightness of the light (between 0 & 254):");
+AddNumberParam("Time", "The fade time to switch the light to (multiples of 100ms");
 AddAction(3, af_none, "Set a light to a specific Color",
 						"Light",
-						"Set light {0} to H:{1},S:{2},B:{3}",
+						"Set light {0} to H:{1},S:{2},B:{3} during {4}",
 						"Met deze functie is het mogelijk om een lamp een kleur, verzadiging en helderheid mee te geven",
 						"setLightColor");
 
@@ -191,7 +192,13 @@ AddExpression(1, ef_return_string, "(Boolean) Is bridgeUser whitelisted?",
 AddExpression(2, ef_return_string, "(JSON) All available lights",
     "Lights",
     "lights",
-    "Een JSON string met alle beschikbare lampen");
+    "Een JSON string met alle beschikbare lampen op de bridge");
+
+AddExpression(3, ef_return_string, "(JSON) All used lights",
+    "Lights used",
+    "usedLights",
+    "Een JSON string met alle beschikbare lampen op de bridge");
+
 
 ////////////////////////////////////////
 ACESDone();

@@ -1,5 +1,5 @@
-function MeetHueLookup() {
-    console.log('PhilipsHue :: MeetHue NUPNP lookup startet');
+function MeetHueLookup(app) {
+    console.log('PhilipsHue :: MeetHue NUPNP lookup started');
     $.ajax('https://www.meethue.com/api/nupnp', {
         type: 'GET',
         dataType: 'json',
@@ -8,11 +8,11 @@ function MeetHueLookup() {
             console.log("MeetHueLookup:: success");
             console.log(data);
             if(data.length == 1) {
-                this.bridgeIP = data[0].internalipaddress;
-                this.isBridgeConnected = true;
-                return true;
+                app.bridgeIP = data[0].internalipaddress;
+                app.isBridgeConnected = true;
+                checkPermission(app);
             } else {
-                return false;
+                app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigAutoConnectFailed, app);
             }
             
         },
@@ -30,49 +30,55 @@ function MeetHueLookup() {
     });
 }
 
-function checkPermission() {
+function checkPermission(app) {
     console.log("checkPermission:: url:");
-    console.log('http://' + this.bridgeIP + '/api/' + this.username);
-    $.ajax('http://' + this.bridgeIP + '/api/' + this.username, {
+    console.log('http://' + app.bridgeIP + '/api/' + app.username);
+    console.log(app);
+    $.ajax('http://' + app.bridgeIP + '/api/' + app.username, {
         type: 'GET',
         success: function (data) {
             console.log("CheckPermission:: response okay");
             console.log(data);
-                //console.log('Error in data: '+(data[0].hasOwnProperty("error")));
+            //console.log('Error in data: '+(data[0].hasOwnProperty("error")));
 
-                if (data[0] != undefined) {
-                    if (data[0].hasOwnProperty("error")) {
-                        console.log("CheckPermission:: No permission, asking permission");
-                        console.log(data.error);
-                        
-                        var newUser = setInterval(function() {
-                            $.ajax('http://' + this.bridgeIP + '/api', {
-                                type: 'POST',
-                                dataType: 'json',
-                                data: JSON.stringify({
-                                    "devicetype": this.user,
-                                    "username": this.username
-                                }),
-                                success: function(data) {
-                                    console.log("CheckPermission:: asking permission success");
-                                    console.log(data);
-                                    if("success" in data[0] == true) {
-                                        this.runtime.trigger(trigConnectSucceeded, this);
-                                        clearInterval(newUser);
-                                    }
-                                },
-                                error: function(data) {
-                                    console.log("CheckPermission:: asking permission error");
-                                    console.log(data);
+            if (data[0] != undefined) {
+                if (data[0].hasOwnProperty("error")) {
+                    console.log("CheckPermission:: No permission, asking permission");
+                    console.log(data.error);
+                    app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigLinkButton, app);
+                    var newUser = setInterval(function() {
+                        $.ajax('http://' + app.bridgeIP + '/api', {
+                            type: 'POST',
+                            dataType: 'json',
+                            data: JSON.stringify({
+                                "devicetype": app.user,
+                                "username": app.username
+                            }),
+                            success: function(data) {
+                                console.log("CheckPermission:: asking permission success");
+                                console.log(data);
+                                if("success" in data[0] == true) {
+                                    app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigConnectSucceeded, app);
+                                    listLights();
+                                    clearInterval(newUser);
                                 }
-                            });
-                        }, 500);
-                        return "link";
-                    }
+                            },
+                            error: function(data) {
+                                console.log("CheckPermission:: asking permission error");
+                                console.log(data);
+                            }
+                        });
+                    }, 500);
+                } else {
+                    app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigConnectSucceeded, app);
                 }
+            } else {
+                app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigConnectSucceeded, app);
+            }
             if ("lights" in data == true) {
-                console.log('SUCCESS Key exists :: data.lights: ' + this.username);
-                listLights();
+                console.log('SUCCESS Key exists :: data.lights: ' + app.username);
+                app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigConnectSucceeded, app);
+                listLights(app);
             }
         },
         error: function (data) {
@@ -86,8 +92,8 @@ function checkPermission() {
     });
 }
 
-function listLights() {
-    $.ajax('http://' + this.bridgeIP + '/api/' + this.username + '/lights', {
+function listLights(app) {
+    $.ajax('http://' + app.bridgeIP + '/api/' + app.username + '/lights', {
         type: 'GET',
         success: function(data) {
             console.log("listLights:: success");
@@ -95,10 +101,10 @@ function listLights() {
             if(data.length != 0) {
                 $.each(data, function(i, val) {
                     if(val.state.reachable == true) {
-                        lights.push(i);
-                        setColor(i);
+                        app.lights.push(i);
                     }
                 });
+                app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.lightListRecieved, app);
             }
         }, 
         error: function(data) {
@@ -108,15 +114,18 @@ function listLights() {
     });
 }
 
-function setColor(light) {
-    $.ajax('http://' + this.bridgeIP + '/api/' + this.username + '/lights/' + light + '/state', {
+function setColor(app, lampSlot, Hue, Saturation, Brightness, Time) {
+    console.log("::setColor::");
+    console.log(lampSlot, Hue, Saturation, Brightness, Time);
+    lightID = 4;
+    $.ajax('http://' + app.bridgeIP + '/api/' + app.username + '/lights/' + lightID + '/state', {
         type: 'PUT',
         data: JSON.stringify({
             "on": true,
-            "bri": 20,
-            "hue": 46920,
-            "sat": 254,
-            "transitiontime": 50
+            "bri": Brightness,
+            "hue": Hue,
+            "sat": Saturation,
+            "transitiontime": Time
         }),
         success: function(data) {
             console.log("setColor:: success");

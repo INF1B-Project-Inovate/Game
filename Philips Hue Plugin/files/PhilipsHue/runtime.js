@@ -44,7 +44,8 @@ cr.plugins_.PhilipsHue = function (runtime) {
         this.isBridgeConnected = false;
         this.bridgeIP = "<auto>";
         this.isWhitelisted = false;
-        this.lights = {};
+        this.lights = [];
+        this.usedLights = {};
     };
 
     var instanceProto = pluginProto.Instance.prototype;
@@ -83,6 +84,26 @@ cr.plugins_.PhilipsHue = function (runtime) {
         return this.isHueConnected;
     };
 
+    Cnds.prototype.lightListRecieved = function () {
+        return true;
+    };
+
+    Cnds.prototype.trigAutoConnectFailed = function () {
+        return true;
+    };
+
+    Cnds.prototype.trigManConnectFailed = function () {
+        return true;
+    };
+
+    Cnds.prototype.trigLinkButton = function () {
+        return true;
+    };
+
+    Cnds.prototype.trigConnectSucceeded = function () {
+        return true;
+    };
+
     // ... other conditions here ...
 
     pluginProto.cnds = new Cnds();
@@ -93,19 +114,7 @@ cr.plugins_.PhilipsHue = function (runtime) {
 
     // the example action
     Acts.prototype.autoConnectHueBridge = function () {
-        if(MeetHueLookup()) {
-            switch(checkPermission()) {
-                case "link":
-                    this.runtime.trigger(trigLinkButton, this);
-                    break;
-                case false:
-                    console.log("checkPermission returned false");
-                    break;
-                default:
-                    console.log("Well... this shouldn't be happening. (checkPermission)");
-                    break;
-            }
-        }
+        MeetHueLookup(this);
     };
 
     Acts.prototype.manualConnectHueBridge = function (ip) {
@@ -113,15 +122,17 @@ cr.plugins_.PhilipsHue = function (runtime) {
     };
 
     Acts.prototype.gainPermission = function () {
-        alert("Not yet implemented");
+        // nope
     };
 
     Acts.prototype.setLightSlot = function (lampID, lampSlot) {
-        alert("Not yet implemented + ID: '" + lampID + "' + lampSlot: '" + lampSlot + "'");
+        this.usedLights[lampSlot] = lampID;
+        console.log("::setLightSlot::");
+        console.log("lampID: " & lampID & " -- lampSlot: " & lampSlot);
     };
 
-    Acts.prototype.setLightColor = function (lampSlot, Hue, Saturation, Brightness) {
-        alert("Not yet implemented + Slot: '" + lampSlot + "' + HSB:" + Hue + "-" + Saturation + "-" + Brightness);
+    Acts.prototype.setLightColor = function (lampSlot, Hue, Saturation, Brightness, Time) {
+        setColor(this, lampSlot, Hue, Saturation, Brightness, Time);
     };
 
     // ... other actions here ...
@@ -141,6 +152,25 @@ cr.plugins_.PhilipsHue = function (runtime) {
         // ret.set_any("woo");			// for ef_return_any, accepts either a number or string
     };
 
+    Exps.prototype.isBridgeConnected = function (ret)    // 'ret' must always be the first parameter - always return the expression's result through it!
+    {
+        ret.set_string(this.isBridgeConnected);
+    };
+
+    Exps.prototype.isWhitelisted = function (ret)    // 'ret' must always be the first parameter - always return the expression's result through it!
+    {
+        ret.set_string(this.isWhitelisted);
+    };
+
+    Exps.prototype.lights = function (ret)    // 'ret' must always be the first parameter - always return the expression's result through it!
+    {
+        ret.set_string(JSON.stringify(this.lights));
+    };
+
+    Exps.prototype.usedLights = function (ret)    // 'ret' must always be the first parameter - always return the expression's result through it!
+    {
+        ret.set_string(JSON.stringify(this.usedLights));
+    };
     // ... other expressions here ...
 
     pluginProto.exps = new Exps();
