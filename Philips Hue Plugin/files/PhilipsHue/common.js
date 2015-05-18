@@ -19,12 +19,12 @@ function MeetHueLookup(app) {
         error: function (data) {
             console.log("MeetHueLookup:: error");
             console.log('error: ', data);
-            return false; 
+            app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigAutoConnectFailed, app);
         },
         statusCode: {
             404: function () {
                 console.log("MeetHueLookup:: not found 404");
-                return false;
+                app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigAutoConnectFailed, app);
             }
         }
     });
@@ -59,7 +59,7 @@ function checkPermission(app) {
                                 console.log(data);
                                 if("success" in data[0] == true) {
                                     app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigConnectSucceeded, app);
-                                    listLights();
+                                    listLights(app);
                                     clearInterval(newUser);
                                 }
                             },
@@ -116,24 +116,38 @@ function listLights(app) {
 
 function setColor(app, lampSlot, Hue, Saturation, Brightness, Time) {
     console.log("::setColor::");
-    console.log(lampSlot, Hue, Saturation, Brightness, Time);
-    lightID = 4;
-    $.ajax('http://' + app.bridgeIP + '/api/' + app.username + '/lights/' + lightID + '/state', {
-        type: 'PUT',
-        data: JSON.stringify({
-            "on": true,
-            "bri": Brightness,
-            "hue": Hue,
-            "sat": Saturation,
-            "transitiontime": Time
-        }),
-        success: function(data) {
-            console.log("setColor:: success");
-            console.log(data);
-        },
-        error: function(data) {
-            console.log("setColor:: error");
-            console.log(data);
-        }
-    });
+    lightID = app.usedLights[lampSlot];
+    console.log(lightID, Hue, Saturation, Brightness, Time);
+    if (lightID == null) {
+        alert("Light does not exist!");
+    } else {
+        $.ajax('http://' + app.bridgeIP + '/api/' + app.username + '/lights/' + lightID + '/state', {
+            type: 'PUT',
+            dataType: 'json',
+            data: JSON.stringify({
+                "on": true,
+                "bri": Brightness,
+                "hue": Hue,
+                "sat": Saturation,
+                "transitiontime": Time
+            }),
+            success: function(data) {
+                console.log("setColor:: success");
+                console.log(data);
+            },
+            error: function(data) {
+                console.log("setColor:: error");
+                console.log(data);
+            }
+        });
+    }
+}
+
+function validIP (ip) {
+    var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;  
+    if(ip.match(ipformat)){
+        return true;
+    } else {
+        return false;
+    }
 }

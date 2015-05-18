@@ -108,6 +108,12 @@ AddCondition(7, cf_trigger, "Trigger when connect succeeded",
                             "Trigger wanneer de connect positief is afgerond",
                             'trigConnectSucceeded');
 
+AddCondition(8, cf_looping, "Loop over recieved lights",
+                            "Lights",
+                            "Loop over lights",
+                            "Deze loop gaat elke lamp bij langs om een actie hierop uit te voeren",
+                            "hasNextLight");
+
 ////////////////////////////////////////
 // Actions
 
@@ -124,7 +130,7 @@ AddCondition(7, cf_trigger, "Trigger when connect succeeded",
 // AddAction(0, af_none, "Alert", "My category", "Alert {0}", "Description for my action!", "MyAction");
 
 AddStringParam("IP-adres Hue Bridge", "IP-adres van de Hue Bridge");
-AddAction(0, af_none, "Connect Hue Bridge",
+AddAction(0, af_none, "Manual connect Hue Bridge",
 						"Bridge",
 						"Connect to bridge on IP {0}",
 						"Deze functie maakt verbinding met de Hue bridge op het opgegeven IP adres",
@@ -161,11 +167,17 @@ AddAction(3, af_none, "Set a light to a specific Color",
 						"Met deze functie is het mogelijk om een lamp een kleur, verzadiging en helderheid mee te geven",
 						"setLightColor");
 
-AddAction(0, af_none, "Auto connect Hue Bridge",
+AddAction(4, af_none, "Auto connect Hue Bridge",
                         "Bridge",
                         "Auto connect bridge",
                         "Deze functie maakt verbinding met de Hue bridge door het IP adres te zoeken",
                         "autoConnectHueBridge");
+
+AddAction(5, af_none, "Go to the next light available",
+                        "Light",
+                        "Go to next light",
+                        "Deze loop gaat elke lamp bij langs om een actie hierop uit te voeren",
+                        "goToNextLight");
 
 ////////////////////////////////////////
 // Expressions
@@ -198,6 +210,11 @@ AddExpression(3, ef_return_string, "(JSON) All used lights",
     "Lights used",
     "usedLights",
     "Een JSON string met alle beschikbare lampen op de bridge");
+
+AddExpression(4, ef_return_string, "Current light ID (in the loop)",
+    "Lights",
+    "currentLightID",
+    "Dit is de ID van de volgende lamp in de loop");
 
 
 ////////////////////////////////////////
