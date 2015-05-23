@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Instellingen</name>
+    <events>
+        <event-group description="" sid="3406119263769156" title="Button binding (instellingen)">
+            <sub-events>
+                <event-block sid="1628377052208345">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="5732146926782642" type="Touch">
+                            <param id="0" name="Object">geluid</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="2461024775382277" type="System">
+                            <param id="0" name="Layout">Geluidinstellingen</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6111440862694163">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="2559762335499648" type="Touch">
+                            <param id="0" name="Object">HUE</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="687424721200428" type="System">
+                            <param id="0" name="Layout">Hue</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6443477404154587">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="876336995885997" type="Touch">
+                            <param id="0" name="Object">hoofdmenubutton</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="5173515432969055" type="System">
+                            <param id="0" name="Layout">Hoofdmenu</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

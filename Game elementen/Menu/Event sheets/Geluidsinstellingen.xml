@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Geluidsinstellingen</name>
+    <events>
+        <event-group description="" sid="1299618428077763" title="Geluidsinstellingen">
+            <sub-events>
+                <event-block sid="3069553496993843">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="6666734549563811" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-14" name="Set object time scale" sid="1225227959470733" type="System">
+                            <param id="0" name="Object">toggleBackgroundMusic</param>
+                            <param id="1" name="Time scale">4</param>
+                        </action>
+                        <action id="-14" name="Set object time scale" sid="4343210659660497" type="System">
+                            <param id="0" name="Object">toggleSoundeffect</param>
+                            <param id="1" name="Time scale">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2490141666747913">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="9008619339791197" type="Touch">
+                            <param id="0" name="Object">toggleBackgroundMusic</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1319693975723554">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="251408381029821" type="System">
+                                    <param id="0" name="Variable">BGM_on</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set muted" sid="2189527786188272" type="Audio">
+                                    <param id="0" name="Tag">&quot;BGM&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="5793839011953706" type="toggleBackgroundMusic">
+                                    <param id="0" name="Animation">&quot;toMute&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="1304704342219667" type="System">
+                                    <param id="0" name="Variable">BGM_on</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3337612107750966">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="85139202522059" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set muted" sid="3245373667125842" type="Audio">
+                                    <param id="0" name="Tag">&quot;BGM&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="9710960816711756" type="toggleBackgroundMusic">
+                                    <param id="0" name="Animation">&quot;toSound&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="4471936574972675" type="System">
+                                    <param id="0" name="Variable">BGM_on</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8277027127813584">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="6554248073928423" type="Touch">
+                            <param id="0" name="Object">toggleSoundeffect</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8354700445772521">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3939468098262184" type="System">
+                                    <param id="0" name="Variable">BGM_on</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set muted" sid="5546616009135148" type="Audio">
+                                    <param id="0" name="Tag">&quot;SFX&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="5587323241501849" type="toggleSoundeffect">
+                                    <param id="0" name="Animation">&quot;toMute&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8713825970931372" type="System">
+                                    <param id="0" name="Variable">SFX_on</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="346444421458753">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="476998923118925" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set muted" sid="4455002316833333" type="Audio">
+                                    <param id="0" name="Tag">&quot;SFX&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="2175250724719482" type="toggleSoundeffect">
+                                    <param id="0" name="Animation">&quot;toSound&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="2523293670292437" type="System">
+                                    <param id="0" name="Variable">SFX_on</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="3409034390736838">
+            <conditions>
+                <condition id="17" name="On tap object" sid="4851557789396643" type="Touch">
+                    <param id="0" name="Object">hoofdmenubutton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="3877005314158475" type="System">
+                    <param id="0" name="Layout">Hoofdmenu</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

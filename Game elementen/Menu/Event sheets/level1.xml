@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>level1</name>
+    <events>
+        <event-block sid="3546474507746537">
+            <conditions>
+                <condition id="17" name="On tap object" sid="6413476896191468" type="Touch">
+                    <param id="0" name="Object">start2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Alert" sid="4117530259798491" type="Browser">
+                    <param id="0" name="Message">&quot;Well&quot;</param>
+                </action>
+                <action id="0" name="Alert" sid="5131695886191317" type="Browser">
+                    <param id="0" name="Message">&quot;This is not fully working&quot;</param>
+                </action>
+                <action id="0" name="Alert" sid="5899217463539115" type="Browser">
+                    <param id="0" name="Message">&quot;Actually&quot;</param>
+                </action>
+                <action id="0" name="Alert" sid="9888773783848476" type="Browser">
+                    <param id="0" name="Message">&quot;It&apos;s not working at all :P&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
