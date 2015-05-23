@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>LifeBarV2</name>
+    <description>LifeBar Versie 2</description>
+    <version>2</version>
+    <author>Harm</author>
+    <author-email></author-email>
+    <author-website></author-website>
+    <app-id></app-id>
+    <unique-id>3j5eh4fpln4l4</unique-id>
+    <saved-with-version>19500</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="sliderbar" version="1">Slider bar</plugin>
+    </used-plugins>
+    <used-behaviors />
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>854</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D web</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="Function" sid="5110245786379124">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="LifeValue" sid="5157103252075115">
+            <plugin id="sliderbar" />
+        </object-type>
+        <object-type name="Blok1_1" sid="6310891261965193">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2773194487032438" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.745714" y="0.254286" />
+                            <point x="0.745714" y="0.5" />
+                            <point x="0.712857" y="0.712857" />
+                            <point x="0.287143" y="0.712857" />
+                            <point x="0.247143" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="AchtergrondBlok" sid="8733094847109325">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3927864733292339" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-1.png">
+                        <collision-poly>
+                            <point x="0.23" y="0.23" />
+                            <point x="0.768571" y="0.231429" />
+                            <point x="0.768571" y="0.5" />
+                            <point x="0.734286" y="0.734286" />
+                            <point x="0.265714" y="0.734286" />
+                            <point x="0.222857" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Blok1_2" sid="8805087867283017">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="515565821925636" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.745714" y="0.254286" />
+                            <point x="0.745714" y="0.5" />
+                            <point x="0.712857" y="0.712857" />
+                            <point x="0.287143" y="0.712857" />
+                            <point x="0.247143" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Blok2_1" sid="1007575143548749">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5435078858050768" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.745714" y="0.254286" />
+                            <point x="0.745714" y="0.5" />
+                            <point x="0.712857" y="0.712857" />
+                            <point x="0.287143" y="0.712857" />
+                            <point x="0.247143" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Blok3_1" sid="5129185340139404">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4285160464244459" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.745714" y="0.254286" />
+                            <point x="0.745714" y="0.5" />
+                            <point x="0.712857" y="0.712857" />
+                            <point x="0.287143" y="0.712857" />
+                            <point x="0.247143" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Blok3_2" sid="7546384404799289">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="146740613230335" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.745714" y="0.254286" />
+                            <point x="0.745714" y="0.5" />
+                            <point x="0.712857" y="0.712857" />
+                            <point x="0.287143" y="0.712857" />
+                            <point x="0.247143" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Blok2_2" sid="7802922269286875">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5353663501420245" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.745714" y="0.254286" />
+                            <point x="0.745714" y="0.5" />
+                            <point x="0.712857" y="0.712857" />
+                            <point x="0.287143" y="0.712857" />
+                            <point x="0.247143" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LifeText" sid="7167433305563335">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7804302072482115" speed="5">
+                    <frame duration="1" hotspotX="0.502645" hotspotY="0.502645" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                        <collision-poly>
+                            <point x="0.455026" y="0.455026" />
+                            <point x="0.544974" y="0.455026" />
+                            <point x="0.518519" y="0.497355" />
+                            <point x="0.518519" y="0.518519" />
+                            <point x="0.507937" y="0.492063" />
+                            <point x="0.338624" y="0.497355" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BossBar_empty" sid="3224136344083571">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3888689219389078" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\BossBar_empty.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.348837" />
+                            <point x="0.897143" y="0.418605" />
+                            <point x="0.9" y="0.593023" />
+                            <point x="0.5" y="0.651163" />
+                            <point x="0.162857" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BossBar_HP" sid="7734952310822474">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9329997662727168" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\BossBar_HP.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.348837" />
+                            <point x="0.897143" y="0.418605" />
+                            <point x="0.9" y="0.593023" />
+                            <point x="0.5" y="0.651163" />
+                            <point x="0.262857" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Function" uid="4" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

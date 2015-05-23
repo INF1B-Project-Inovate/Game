@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-block sid="5818759999974647">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="6807491761566395" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="3443021435260633" type="Player">
+                    <param id="0" name="Object">Sprite</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="8307359098450417" type="Text">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-3" name="Set position" sid="5342256762733223" type="Sprite2">
+                    <param id="0" name="X">random(300,500)</param>
+                    <param id="1" name="Y">random(150,250)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7835215291476551">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="2288519946239861" type="Player">
+                    <param id="0" name="Object">Sprite</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="6767188763954616" type="Text">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1970965304563473">
+            <conditions>
+                <condition behavior="Pathfinding" id="0" name="On path found" sid="1290605916445794" type="Sprite2" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="1" name="Move along path" sid="1830374871487757" type="Sprite2" />
+            </actions>
+        </event-block>
+        <event-block sid="516089274815446">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="2062678810689568" type="System">
+                    <param id="0" name="Interval (seconds)">0.1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="1931402037533586" type="Sprite2">
+                    <param id="0" name="X">player.X</param>
+                    <param id="1" name="Y">player.Y</param>
+                </action>
+                <action behavior="Pathfinding2" id="0" name="Find path" sid="569149001167866" type="Family1">
+                    <param id="0" name="X">player.X</param>
+                    <param id="1" name="Y">player.y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8946497685328518">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="6574255093932545" type="System">
+                    <param id="0" name="Interval (seconds)">1.8</param>
+                </condition>
+                <condition id="-4" inverted="1" name="Is outside layout" sid="6280410632978712" type="Sprite2" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="9908607788635758" type="Sprite2">
+                    <param id="0" name="Object">Bullets</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="7610680548075586" type="Sprite2">
+                    <param id="0" name="Object">Bullets2</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="4162578734821284" type="Sprite2">
+                    <param id="0" name="Object">Bullets3</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="5961523129417182" type="Sprite2">
+                    <param id="0" name="Object">Bullets4</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-8" name="Set angle" sid="3996681042388688" type="Bullets">
+                    <param id="0" name="Angle">90</param>
+                </action>
+                <action id="-8" name="Set angle" sid="3560710445494387" type="Bullets2">
+                    <param id="0" name="Angle">180</param>
+                </action>
+                <action id="-8" name="Set angle" sid="1637032889384715" type="Bullets3">
+                    <param id="0" name="Angle">270</param>
+                </action>
+                <action id="-8" name="Set angle" sid="9278492324852063" type="Bullets4">
+                    <param id="0" name="Angle">360</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2587831450731457">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="4237995240775515" type="Player">
+                    <param id="0" name="Object">Bullet</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="2326069206687393" type="Text2">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2078152639141973">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="4319788789590339" type="Keyboard">
+                    <param id="0" name="Key">17 (Ctrl)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="1037148788617361" type="Player">
+                    <param id="0" name="Object">Kogel</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3244314375203148">
+            <conditions>
+                <condition id="-4" inverted="1" name="Is outside layout" sid="6012057054510791" type="Sprite2" />
+                <condition id="-6" name="Every X seconds" sid="2875467839034017" type="System">
+                    <param id="0" name="Interval (seconds)">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="3072353881733794" type="Sprite2">
+                    <param id="0" name="Object">Sprite3</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="9126914448466093" type="Sprite2">
+                    <param id="0" name="Object">Sprite4</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="9565409643930706" type="Sprite2">
+                    <param id="0" name="Object">Sprite5</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="4124672758450871" type="Sprite2">
+                    <param id="0" name="Object">Sprite6</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-8" name="Set angle" sid="1805683044650915" type="Sprite3">
+                    <param id="0" name="Angle">random(360)</param>
+                </action>
+                <action id="-8" name="Set angle" sid="3477499293057878" type="Sprite4">
+                    <param id="0" name="Angle">random(360)</param>
+                </action>
+                <action id="-8" name="Set angle" sid="4372258921888764" type="Sprite5">
+                    <param id="0" name="Angle">random(360)</param>
+                </action>
+                <action id="-8" name="Set angle" sid="7942564677483382" type="Sprite6">
+                    <param id="0" name="Angle">random(360)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7967686345666098">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="3471648465897628" type="Kogel">
+                    <param id="0" name="Object">Family1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="1450581641371325" type="Family1" />
+            </actions>
+        </event-block>
+        <event-block sid="3502231927142926">
+            <conditions>
+                <condition behavior="Pathfinding2" id="0" name="On path found" sid="1199273190341455" type="Family1" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding2" id="1" name="Move along path" sid="6645521822988151" type="Family1" />
+            </actions>
+        </event-block>
+        <event-block sid="2251575451187475">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="2784566337760183" type="Player">
+                    <param id="0" name="Object">Family1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="1180048994591886" type="Text2">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3013215952454884">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="3001432093670883" type="Player">
+                    <param id="0" name="Object">Sprite2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="6562399829738532" type="Text2">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

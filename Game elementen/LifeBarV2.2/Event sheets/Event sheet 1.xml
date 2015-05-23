@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-group description="Lifebar Versie 2; Onnodige objecten verwijderd, extra blokken toegevoegd zodat hij per half blok omlaag gaat. " sid="6005860205648225" title="LifeBar">
+            <sub-events>
+                <variable comment="Life % between 1 and 0. 1 = 100%, 0,50 = 50%, etc." constant="0" name="LifePercent" sid="3943776605923428" static="0" type="number">0</variable>
+                <event-block sid="4392457173852022">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="5294319045127959" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1126939953544209" type="System">
+                            <param id="0" name="Variable">LifePercent</param>
+                            <param id="1" name="Value">LifeValue.Value/100</param>
+                        </action>
+                        <action id="0" name="Call function" sid="1123582906604119" type="Function">
+                            <param id="0" name="Name">&quot;Lifebar.Update&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1013237217421716">
+                    <conditions>
+                        <condition id="0" name="On function" sid="2810092685582076" type="Function">
+                            <param id="0" name="Name">&quot;Lifebar.Update&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2918693565637843">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="941367350955947" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="2463819134360866" type="Blok1_1">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9510585645125352">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="7928969578608333" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="9725748335799709" type="Blok1_1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3538289034331754">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9796068558269516" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0.15</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="7767501895802212" type="Blok1_2">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6293329279890882">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="1633445421706204" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0.15</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="2144725748704676" type="Blok1_2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5741191693047546">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5261848926157714" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0.35</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="3161994815049209" type="Blok2_1">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1075714643904348">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5649011768358091" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0.35</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="4184470957405529" type="Blok2_1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1524897814170628">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9210781457840571" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0.55</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="8496918387087331" type="Blok2_2">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1301357197059286">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="4208417512212022" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0.55</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="3323897733648246" type="Blok2_2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9228147772159622">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="2004355190370605" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0.70</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="6426192386696031" type="Blok3_1">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1041467319844605">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="779821966640913" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0.70</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="8093190787971113" type="Blok3_1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6045716669373832">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6204753240811068" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0.85</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="5386482139917477" type="Blok3_2">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9457829248317052">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9696436119915876" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0.85</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="5593203480307528" type="Blok3_2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

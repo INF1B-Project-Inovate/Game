@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>lvl1</name>
+    <events>
+        <variable constant="0" name="Enemies" sid="5118260369562809" static="0" type="number">0</variable>
+        <variable constant="0" name="Coins" sid="2156959697462935" static="0" type="number">0</variable>
+        <variable constant="0" name="Items" sid="4258728441035257" static="0" type="number">0</variable>
+        <variable constant="0" name="ChestNumber" sid="8248994481930541" static="0" type="number">0</variable>
+        <variable constant="0" name="Score" sid="8487436860215945" static="0" type="number">0</variable>
+        <event-group description="" sid="3179667550192233" title="Chest trigger" />
+        <event-block sid="8070971902874283">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="1893239842251914" type="Chest">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="3290463747525526" type="System">
+                    <param id="0" name="Variable">ChestNumber</param>
+                    <param id="1" name="Value">round(random(1, 3))</param>
+                </action>
+                <action id="0" name="Set text" sid="5505760177830206" type="Chestvalue">
+                    <param id="0" name="Text">ChestNumber</param>
+                </action>
+                <action id="-9" name="Destroy" sid="5483930163845481" type="Chest" />
+            </actions>
+            <sub-events>
+                <event-block sid="529276613761155">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="74439862316888" type="System">
+                            <param id="0" name="Variable">ChestNumber</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-10" name="For" sid="649643296596469" type="System">
+                            <param id="0" name="Name">&quot;Enemies&quot;</param>
+                            <param id="1" name="Start index">Enemies</param>
+                            <param id="2" name="End index">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="3276325243318331" type="SpawnerObj">
+                            <param id="0" name="X">round(random(0, 900))</param>
+                            <param id="1" name="Y">round(random(0, 900))</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="5907151535254301" type="System">
+                            <param id="0" name="Object to create">Enemy</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">SpawnerObj.X</param>
+                            <param id="3" name="Y">SpawnerObj.Y</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="3244130817962425" type="Enemy">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8126257993233996">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="8408356020864968" type="System">
+                            <param id="0" name="Variable">ChestNumber</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="-10" name="For" sid="4857698187703214" type="System">
+                            <param id="0" name="Name">&quot;Coins&quot;</param>
+                            <param id="1" name="Start index">Coins</param>
+                            <param id="2" name="End index">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="718792664815563" type="SpawnerObj">
+                            <param id="0" name="X">round(random(0, 900))</param>
+                            <param id="1" name="Y">round(random(0, 900))</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="9589001123023346" type="System">
+                            <param id="0" name="Object to create">Coin</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">SpawnerObj.Y</param>
+                            <param id="3" name="Y">SpawnerObj.X</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="8822949693818885" type="Coin">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8547250678283337">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7963138872971357" type="System">
+                            <param id="0" name="Variable">ChestNumber</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="4755767737755087" type="SpawnerObj">
+                            <param id="0" name="X">round(random(0, 900))</param>
+                            <param id="1" name="Y">round(random(0, 900))</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="2011891999773904" type="System">
+                            <param id="0" name="Object to create">Item</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">SpawnerObj.X</param>
+                            <param id="3" name="Y">SpawnerObj.Y</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="4911484176113014" type="Item">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="4458645552371518" title="Chest generate" />
+        <event-block sid="69973044479831">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8747441633293143" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="8070891424507519" type="SpawnerObj">
+                    <param id="0" name="X">round(random(0, 900))</param>
+                    <param id="1" name="Y">round(random(0, 900))</param>
+                </action>
+                <action id="-3" name="Create object" sid="8460551661305716" type="System">
+                    <param id="0" name="Object to create">Chest</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">SpawnerObj.X</param>
+                    <param id="3" name="Y">SpawnerObj.Y</param>
+                </action>
+                <action id="-15" name="Set visible" sid="13670027918608" type="Chest">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="5099413786662566" title="Transit" />
+        <event-block sid="5584069202326584">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="1900082375380135" type="Transit">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="8927817938936535" type="System">
+                    <param id="0" name="Layout">Layout 2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="4655097364863977" title="Score" />
+        <event-block sid="8397349074648624">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="8085027179639614" type="Coin">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="4579580439849632" type="System">
+                    <param id="0" name="Variable">Score</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="0" name="Set text" sid="4118778163981517" type="Score">
+                    <param id="0" name="Text">Score</param>
+                </action>
+                <action id="-9" name="Destroy" sid="5942062235163876" type="Coin" />
+            </actions>
+        </event-block>
+        <event-block sid="6937614186611619">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="8490737827412025" type="Coin">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="2026825053838433" type="System">
+                    <param id="0" name="Seconds">3.0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="1977518608369718" type="Coin">
+                    <param id="0" name="Opacity">50</param>
+                </action>
+                <action id="-16" name="Wait" sid="1788689186963439" type="System">
+                    <param id="0" name="Seconds">3.5</param>
+                </action>
+                <action id="-9" name="Destroy" sid="2606638751780082" type="Coin" />
+            </actions>
+        </event-block>
+        <event-group description="" sid="5342903279801875" title="Reset test" />
+        <event-block sid="3434915284694781">
+            <conditions>
+                <condition id="17" name="On tap object" sid="4259715127810825" type="Touch">
+                    <param id="0" name="Object">Reset</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="7488419164673143" type="System" />
+            </actions>
+        </event-block>
+        <event-group description="These are canvas scaling functions for use of convience. The tutorial has numerous calls and use for canvas scale and it&apos;s just easier. Your projects may not need this as a function and can embed the code." sid="9855123160587688" title="Functions">
+            <sub-events>
+                <event-block sid="1755802595882388">
+                    <conditions>
+                        <condition id="0" name="On function" sid="2513697712617182" type="Function">
+                            <param id="0" name="Name">&quot;ScaleX&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set return value" sid="2038583232091029" type="Function">
+                            <param id="0" name="Value">CanvasToLayerX(&quot;HUD&quot;, touch.AbsoluteXForID(Function.Param(0)), touch.AbsoluteYForID(Function.Param(0)) )</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6899293570619937">
+                    <conditions>
+                        <condition id="0" name="On function" sid="6511856940241359" type="Function">
+                            <param id="0" name="Name">&quot;ScaleY&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set return value" sid="9881984887913821" type="Function">
+                            <param id="0" name="Value">CanvasToLayerY(&quot;HUD&quot;, touch.AbsoluteXForID(Function.Param(0)), touch.AbsoluteYForID(Function.Param(0)) )</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Numerica tracker that follows the fingers and report X and Y position." sid="251461570743424" title="TrackTouch2">
+            <sub-events>
+                <event-block sid="9387636839424854">
+                    <conditions>
+                        <condition id="0" name="On any touch start" sid="2696048855331375" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="3860264706269509" type="System">
+                            <param id="0" name="Object to create">touchTrack</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">touch.X</param>
+                            <param id="3" name="Y">touch.Y</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="1357111336756093" type="touchTrack">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Value">touch.touchID</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8407765524469124">
+                    <conditions>
+                        <condition id="1" name="On any touch end" sid="8508382075104639" type="Touch" />
+                        <condition id="-7" name="Compare instance variable" sid="4375918194591329" type="touchTrack">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">touch.TouchID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="7093279589875613" type="touchTrack" />
+                    </actions>
+                </event-block>
+                <variable constant="0" name="x" sid="8433281655238041" static="0" type="number">0</variable>
+                <variable constant="0" name="y" sid="9704887620813074" static="0" type="number">0</variable>
+                <event-block sid="8402502115664632">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="6843044028903432" type="System">
+                            <param id="0" name="Object">touchTrack</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1557721076342139" type="System">
+                            <param id="0" name="Variable">x</param>
+                            <param id="1" name="Value">CanvasToLayerX(&quot;HUD&quot;, touch.AbsoluteXForID(touchTrack.id), touch.AbsoluteYForID(touchTrack.id) )</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6002687483157412" type="System">
+                            <param id="0" name="Variable">y</param>
+                            <param id="1" name="Value">CanvasToLayerY(&quot;HUD&quot;, touch.AbsoluteXForID(touchTrack.id), touch.AbsoluteYForID(touchTrack.id) )</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="6977257342757685" type="touchTrack">
+                            <param id="0" name="X">x</param>
+                            <param id="1" name="Y">y</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4859612835319043" type="touchTrack">
+                            <param id="0" name="Text">&quot;X:&quot;&amp; floor(x ) &amp; &quot; Y:&quot;&amp; floor(y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Controls for a floating(center on touch) based joystick. The method for hiding the control is arbitrary and you can do any way you want." sid="8025474990282916" title="Floating Analog Joystick(fana)2">
+            <sub-events>
+                <variable constant="0" name="touchID" sid="1701208694636303" static="1" type="number">-1</variable>
+                <variable constant="0" name="dist" sid="3214035071948091" static="0" type="number">0</variable>
+                <variable constant="0" name="cangle" sid="5793469877557767" static="0" type="number">0</variable>
+                <variable comment="distance the stick can move from center" constant="0" name="radius" sid="9452939418076768" static="1" type="number">40</variable>
+                <event-block sid="6106212053941148">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="2724786848126681" type="Touch">
+                            <param id="0" name="Object">fanaRangeBox</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4746241440650679" type="System">
+                            <param id="0" name="Variable">touchID</param>
+                            <param id="1" name="Value">touch.TouchID</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="8611253649488348" type="fanaPad">
+                            <param id="0" name="X">Function.Call(&quot;ScaleX&quot;, touchID)</param>
+                            <param id="1" name="Y">Function.Call(&quot;ScaleY&quot;, touchID)</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="855983971680973" type="fanaStick">
+                            <param id="0" name="Object">fanaPad</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6597203110046253">
+                    <conditions>
+                        <condition id="2" name="Is in touch" sid="7619413538377454" type="Touch" />
+                        <condition id="-14" name="Compare variable" sid="9660980491681511" type="System">
+                            <param id="0" name="Variable">touchID</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6318756157903108" type="System">
+                            <param id="0" name="Variable">dist</param>
+                            <param id="1" name="Value">distance(fanaPad.X, fanaPad.Y, &#x0D;&#x0A;Function.Call(&quot;ScaleX&quot;, touchID), &#x0D;&#x0A;Function.Call(&quot;ScaleY&quot;, touchID) )</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2957146673116911" type="System">
+                            <param id="0" name="Variable">cangle</param>
+                            <param id="1" name="Value">angle(fanaPad.X, fanaPad.Y, &#x0D;&#x0A;Function.Call(&quot;ScaleX&quot;, touchID), &#x0D;&#x0A;Function.Call(&quot;ScaleY&quot;, touchID) )</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="441597705978206" type="fanaStick">
+                            <param id="0" name="X">(cos(cangle) * (dist &lt; radius ? dist :  radius)) + fanaPad.X</param>
+                            <param id="1" name="Y">(sin(cangle) * (dist &lt; radius ? dist :  radius)) + fanaPad.Y</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="9834952561698149" type="fanaStick">
+                            <param id="0" name="Instance variable">conAngle</param>
+                            <param id="1" name="Value">cangle</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4635831164506716" type="fanaStick">
+                            <param id="0" name="Instance variable">XP</param>
+                            <param id="1" name="Value">((fanaStick.X - fanaPad.X)  / radius) * 100</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4726727739516615" type="fanaStick">
+                            <param id="0" name="Instance variable">YP</param>
+                            <param id="1" name="Value">((fanaStick.Y - fanaPad.Y)  / radius) * 100</param>
+                        </action>
+                        <action id="0" name="Set text" sid="2684541910271708" type="fanaTXT">
+                            <param id="0" name="Text">&quot;angle: &quot; &amp; floor(cangle) &amp;  &quot;     XP: &quot; &amp; floor(fanaStick.XP) &amp; &quot;     YP: &quot; &amp; floor(fanaStick.YP)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8077691043988733">
+                    <conditions>
+                        <condition id="1" name="On any touch end" sid="643450814206879" type="Touch" />
+                        <condition id="-14" name="Compare variable" sid="3562365651570959" type="System">
+                            <param id="0" name="Variable">touchID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">touch.TouchID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="2257644177682857" type="fanaPad">
+                            <param id="0" name="X">-1000</param>
+                            <param id="1" name="Y">0</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="1982725399835725" type="fanaStick">
+                            <param id="0" name="Object">fanaPad</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4668051367076343" type="fanaStick">
+                            <param id="0" name="Instance variable">XP</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="8096233556920896" type="fanaStick">
+                            <param id="0" name="Instance variable">YP</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4132107086633929" type="fanaStick">
+                            <param id="0" name="Instance variable">conAngle</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4249150816839082" type="System">
+                            <param id="0" name="Variable">touchID</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3625701189665945" type="fanaTXT">
+                            <param id="0" name="Text">&quot;fana&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="7267926372881013" title="Sample2">
+            <sub-events>
+                <comment>demo uses a simple dead zone.</comment>
+                <variable constant="0" name="deadzone" sid="8070216549786517" static="0" type="number">0</variable>
+                <event-block any="1" sid="5296675168017011">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="4893285135987193" type="fanaStick">
+                            <param id="0" name="Instance variable">XP</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">deadzone</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="5696586196998456" type="Player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="7919701512711581">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="9682798018983131" type="fanaStick">
+                            <param id="0" name="Instance variable">XP</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">-deadzone</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="3335222514568978" type="Player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="5874301346939421">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="5920476895568657" type="fanaStick">
+                            <param id="0" name="Instance variable">YP</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">deadzone</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="8106879190231381" type="Player">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="8757353019221198">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1070228937617433" type="fanaStick">
+                            <param id="0" name="Instance variable">YP</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">-deadzone</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="4324628893016996" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>&#x0D;&#x0A;&#x0D;&#x0A;&#x0D;&#x0A;Movement with only ANGLE control</comment>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
