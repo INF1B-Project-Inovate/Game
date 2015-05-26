@@ -10,6 +10,8 @@
     <unique-id>1bsh313o8moib</unique-id>
     <saved-with-version>19500</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
@@ -19,7 +21,6 @@
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
-        <plugin author="Zack0Wack0/Scirra" id="WebStorage" version="1">WebStorage</plugin>
     </used-plugins>
     <used-behaviors />
     <used-effects />
@@ -1561,6 +1562,74 @@
                     <plugin id="TextBox" />
                 </object-type>
             </object-folder>
+            <object-folder name="Highscores">
+                <object-type global="1" name="HighscoreArray" sid="3909835244424142">
+                    <plugin id="Arr" />
+                </object-type>
+                <object-type name="HighscoreName1" sid="9664614365645493">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="HighscoreName10" sid="6073062962929708">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="HighscoreName2" sid="8683721914051745">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="HighscoreName3" sid="514695240805118">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="HighscoreName5" sid="4728141967056737">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="HighscoreName7" sid="3900605715599044">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="HighscoreName8" sid="8381054899205332">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="HighscoreName6" sid="6998406342589192">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="HighscoreName4" sid="1645462750928281">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="HighscoreName9" sid="9647011731888646">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="Highscore1" sid="6627244894244387">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="Highscore10" sid="3468026718902375">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="Highscore3" sid="238312566476059">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="Highscore4" sid="4642989749734411">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="Highscore2" sid="5426540343323571">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="Highscore6" sid="6519931430568137">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="Highscore7" sid="8606628764298405">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="Highscore8" sid="2143334905796974">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="Highscore9" sid="5855406083650908">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="Highscore5" sid="5558271821856457">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="txtHighscores" sid="7026000737842295">
+                    <plugin id="Text" />
+                </object-type>
+            </object-folder>
             <object-type name="HDvoorscherm" sid="3656257339452317">
                 <plugin id="Sprite" />
                 <animation-folder>
@@ -1609,8 +1678,8 @@
             <object-type name="Touch" sid="6220395279616062">
                 <plugin id="Touch" />
             </object-type>
-            <object-type name="WebStorage" sid="4937264530965619">
-                <plugin id="WebStorage" />
+            <object-type name="AJAX" sid="9090516103995722">
+                <plugin id="AJAX" />
             </object-type>
         </object-folder>
     </object-folder>
@@ -1621,6 +1690,7 @@
             <layout>Geluidinstellingen.xml</layout>
             <layout>Hoofdmenu.xml</layout>
             <layout>Hue.xml</layout>
+            <layout>Highscores.xml</layout>
         </layout-folder>
         <layout-folder name="Level&apos;s">
             <layout>level1.xml</layout>
@@ -1632,13 +1702,13 @@
             <event-sheet>Hoofdmenu.xml</event-sheet>
             <event-sheet>Instellingen.xml</event-sheet>
             <event-sheet>Hue.xml</event-sheet>
+            <event-sheet>Highscores.xml</event-sheet>
         </event-folder>
         <event-folder name="Level&apos;s">
             <event-sheet>level1.xml</event-sheet>
         </event-folder>
     </event-folder>
     <global-instances>
-        <global-instance type="WebStorage" uid="15" />
         <global-instance type="Audio" uid="17">
             <properties>
                 <timescale-audio>Off</timescale-audio>
@@ -1662,6 +1732,7 @@
                 <use-mouse-input>Yes</use-mouse-input>
             </properties>
         </global-instance>
+        <global-instance type="AJAX" uid="36" />
     </global-instances>
     <sounds-folder />
     <music-folder>

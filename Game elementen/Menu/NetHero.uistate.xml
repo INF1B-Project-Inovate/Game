@@ -9,7 +9,15 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         </active>
         <display name="HTML5" />
     </configurations>
-    <open-tabs />
+    <open-tabs>
+        <layout order="0">Instellingen</layout>
+        <layout order="1">Geluidinstellingen</layout>
+        <layout order="2">Hoofdmenu</layout>
+        <layout order="3">Hue</layout>
+        <layout active="1" order="5">Highscores</layout>
+        <event-sheet order="4">Hue</event-sheet>
+        <event-sheet order="6">Highscores</event-sheet>
+    </open-tabs>
     <properties>
         <property expanded="1" name="About" />
         <property expanded="1" name="Project settings" />
@@ -18,18 +26,19 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </properties>
     <families-expanded root="1" />
     <folders-expanded>
-        <folder expanded="1" path="object-folder/" />
+        <folder expanded="0" path="object-folder/" />
         <folder expanded="0" path="object-folder/Menu&apos;s/" />
         <folder expanded="0" path="object-folder/Menu&apos;s/Hoofdmenu/" />
         <folder expanded="0" path="object-folder/Menu&apos;s/Instellingen/" />
         <folder expanded="0" path="object-folder/Menu&apos;s/Geluidsinstellingen/" />
         <folder expanded="0" path="object-folder/Menu&apos;s/Hue/" />
+        <folder expanded="0" path="object-folder/Menu&apos;s/Highscores/" />
         <folder expanded="0" path="object-folder/Level&apos;s/" />
         <folder expanded="0" path="object-folder/Algemeen/" />
-        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="0" path="layout-folder/" />
         <folder expanded="0" path="layout-folder/Menu&apos;s/" />
         <folder expanded="0" path="layout-folder/Level&apos;s/" />
-        <folder expanded="1" path="event-folder/" />
+        <folder expanded="0" path="event-folder/" />
         <folder expanded="0" path="event-folder/Menu&apos;s/" />
         <folder expanded="0" path="event-folder/Level&apos;s/" />
         <folder expanded="0" path="file-folder/" />

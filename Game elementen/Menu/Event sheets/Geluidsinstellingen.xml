@@ -5,7 +5,7 @@
     <events>
         <event-group description="" sid="1299618428077763" title="Geluidsinstellingen">
             <sub-events>
-                <event-block sid="3069553496993843">
+                <event-block disabled="1" sid="3069553496993843">
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="6666734549563811" type="System" />
                     </conditions>

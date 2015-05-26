@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Highscores</name>
+    <events>
+        <event-group description="" sid="7046098207404071" title="Loading data in array">
+            <sub-events>
+                <variable constant="1" name="SERVER_IP" sid="6530755268200068" static="0" type="text">127.0.0.1</variable>
+                <event-block sid="7604453902467994">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="5086627149701715" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Request URL" sid="1094471710281783" type="AJAX">
+                            <param id="0" name="Tag">&quot;HighScoreRequest&quot;</param>
+                            <param id="1" name="URL">&quot;http://&quot; &amp; server_ip &amp; &quot;/json.php&quot;</param>
+                        </action>
+                        <action id="14" name="Log" sid="2860972697424141" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">&quot;Ajax request to: http://&quot; &amp; server_ip &amp; &quot;/json.php&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5861988514625686">
+                    <conditions>
+                        <condition id="0" name="On completed" sid="2159799302408478" type="AJAX">
+                            <param id="0" name="Tag">&quot;HighScoreRequest&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="11" name="Load" sid="6781293593828836" type="HighscoreArray">
+                            <param id="0" name="JSON">AJAX.LastData</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4839418388664673" type="HighscoreName1">
+                            <param id="0" name="Text">HighscoreArray.At(0,0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4314089540825002" type="HighscoreName2">
+                            <param id="0" name="Text">HighscoreArray.At(1,0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="6228743851146628" type="HighscoreName3">
+                            <param id="0" name="Text">HighscoreArray.At(2,0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="5184228060375894" type="HighscoreName4">
+                            <param id="0" name="Text">HighscoreArray.At(3,0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="7897681591659305" type="HighscoreName5">
+                            <param id="0" name="Text">HighscoreArray.At(4,0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4826657546028616" type="HighscoreName6">
+                            <param id="0" name="Text">HighscoreArray.At(5,0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="8195717615259018" type="HighscoreName7">
+                            <param id="0" name="Text">HighscoreArray.At(6,0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3236481209022967" type="HighscoreName8">
+                            <param id="0" name="Text">HighscoreArray.At(7,0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="5576814423587863" type="HighscoreName9">
+                            <param id="0" name="Text">HighscoreArray.At(8,0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="9571587626984427" type="HighscoreName10">
+                            <param id="0" name="Text">HighscoreArray.At(9,0)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="7240460085082351" type="Highscore1">
+                            <param id="0" name="Text">HighscoreArray.At(0,1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4447854329573799" type="Highscore2">
+                            <param id="0" name="Text">HighscoreArray.At(1,1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="4995789303571377" type="Highscore3">
+                            <param id="0" name="Text">HighscoreArray.At(2,1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="590183687996251" type="Highscore4">
+                            <param id="0" name="Text">HighscoreArray.At(3,1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3179064023155026" type="Highscore5">
+                            <param id="0" name="Text">HighscoreArray.At(5,1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="7094923248664397" type="Highscore6">
+                            <param id="0" name="Text">HighscoreArray.At(5,1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="1367759630059661" type="Highscore7">
+                            <param id="0" name="Text">HighscoreArray.At(6,1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="8300669552099949" type="Highscore8">
+                            <param id="0" name="Text">HighscoreArray.At(7,1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="7634014689956407" type="Highscore9">
+                            <param id="0" name="Text">HighscoreArray.At(8,1)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3857352174065976" type="Highscore10">
+                            <param id="0" name="Text">HighscoreArray.At(9,1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9373394485715896">
+                    <conditions>
+                        <condition id="1" name="On error" sid="512074478846675" type="AJAX">
+                            <param id="0" name="Tag">&quot;HighScoreRequest&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="14" name="Log" sid="750112636491255" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">&quot;Ajax request error&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="8177236939941908">
+            <conditions>
+                <condition id="17" name="On tap object" sid="9421072595777126" type="Touch">
+                    <param id="0" name="Object">hoofdmenubutton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="1803781103405389" type="System">
+                    <param id="0" name="Layout">Hoofdmenu</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

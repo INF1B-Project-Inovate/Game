@@ -75,8 +75,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="17" name="Execute Javascript" sid="5195330382668454" type="Browser">
-                            <param id="0" name="Javascript">&quot;alert(&apos;No highscore implementation yes, sorry bro&apos;);&quot;</param>
+                        <action id="-2" name="Go to layout" sid="1281989572395502" type="System">
+                            <param id="0" name="Layout">Highscores</param>
                         </action>
                     </actions>
                 </event-block>

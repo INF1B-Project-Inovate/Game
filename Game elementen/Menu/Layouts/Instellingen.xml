@@ -121,6 +121,14 @@
             <effects />
         </layer>
     </layers>
-    <nonworld-instances />
+    <nonworld-instances>
+        <instance type="HighscoreArray" uid="37">
+            <properties>
+                <width>10</width>
+                <height>2</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+    </nonworld-instances>
     <effects />
 </c2layout>

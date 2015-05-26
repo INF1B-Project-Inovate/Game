@@ -44,6 +44,18 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="8207659350205389">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="4811553006089139" type="Touch">
+                            <param id="0" name="Object">hoofdmenubutton</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="4658621708252634" type="System">
+                            <param id="0" name="Layout">Hoofdmenu</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="5920152032389741" title="Manual connect">
