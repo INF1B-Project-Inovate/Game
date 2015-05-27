@@ -18,6 +18,7 @@
         <plugin author="Scirra" id="List" version="1">List</plugin>
         <plugin author="Pascal Drewes - Stenden University - INF1B" id="PhilipsHue" version="0.100000001">Philips Hue API</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
@@ -1630,6 +1631,14 @@
                     <plugin id="Text" />
                 </object-type>
             </object-folder>
+            <object-folder name="addScore">
+                <object-type name="txtScore" sid="5218225034926191">
+                    <plugin id="Text" />
+                </object-type>
+                <object-type name="nameInput" sid="4856656660326777">
+                    <plugin id="TextBox" />
+                </object-type>
+            </object-folder>
             <object-type name="HDvoorscherm" sid="3656257339452317">
                 <plugin id="Sprite" />
                 <animation-folder>
@@ -1682,6 +1691,18 @@
                 <plugin id="AJAX" />
             </object-type>
         </object-folder>
+        <object-type name="SpriteFont" sid="1982450157827998">
+            <plugin id="Spritefont2" />
+            <texture />
+        </object-type>
+        <object-type name="Sprite" sid="2657735148469793">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3069003989576296" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pascal\Dropbox\INF1B (Project Innovate)\Construct2\save.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -1691,6 +1712,7 @@
             <layout>Hoofdmenu.xml</layout>
             <layout>Hue.xml</layout>
             <layout>Highscores.xml</layout>
+            <layout>addScore.xml</layout>
         </layout-folder>
         <layout-folder name="Level&apos;s">
             <layout>level1.xml</layout>
@@ -1703,6 +1725,7 @@
             <event-sheet>Instellingen.xml</event-sheet>
             <event-sheet>Hue.xml</event-sheet>
             <event-sheet>Highscores.xml</event-sheet>
+            <event-sheet>addScore.xml</event-sheet>
         </event-folder>
         <event-folder name="Level&apos;s">
             <event-sheet>level1.xml</event-sheet>
@@ -1748,5 +1771,11 @@
             <file name="icon-256.png" />
             <file name="loading-logo.png" />
         </file-folder>
+        <file name="emulogic-webfont.eot" />
+        <file name="emulogic-webfont.svg" />
+        <file name="emulogic-webfont.ttf" />
+        <file name="emulogic-webfont.woff" />
+        <file name="emulogic-webfont.woff2" />
+        <file name="stylesheet.css" />
     </files-folder>
 </c2project>

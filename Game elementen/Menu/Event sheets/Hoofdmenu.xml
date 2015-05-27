@@ -5,6 +5,7 @@
     <events>
         <variable constant="0" name="BGM_on" sid="8949697912610896" static="0" type="number">1</variable>
         <variable constant="0" name="SFX_on" sid="1685605287591546" static="0" type="number">1</variable>
+        <variable constant="0" name="Score" sid="1371973843416042" static="0" type="number">5000</variable>
         <event-group description="" sid="6359741323158348" title="General">
             <sub-events>
                 <event-block sid="7038174536369645">

@@ -3,9 +3,9 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Highscores</name>
     <events>
+        <variable constant="1" name="SERVER_IP" sid="6530755268200068" static="0" type="text">127.0.0.1</variable>
         <event-group description="" sid="7046098207404071" title="Loading data in array">
             <sub-events>
-                <variable constant="1" name="SERVER_IP" sid="6530755268200068" static="0" type="text">127.0.0.1</variable>
                 <event-block sid="7604453902467994">
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="5086627149701715" type="System" />
