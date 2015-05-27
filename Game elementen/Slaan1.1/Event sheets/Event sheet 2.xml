@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 2</name>
+    <events>
+        <variable constant="0" name="NPCSpider" sid="9787380362367331" static="0" type="number">0</variable>
+        <event-group description="" sid="6972951181406686" title="randomSpawn Spiders">
+            <sub-events>
+                <event-block sid="2396597539159766">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="5046719134535086" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-7" name="Set size" sid="2846780680613397" type="boss3">
+                            <param id="0" name="Width">30</param>
+                            <param id="1" name="Height">40</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="8270643959663343" type="boss3">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="6" name="Set speed" sid="7429065562491625" type="boss3">
+                            <param id="0" name="Speed">15</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7533596441565111">
+                    <conditions>
+                        <condition id="-16" name="Pick random instance" sid="3309316943876586" type="System">
+                            <param id="0" name="Object">spawnPlaces</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="3900477546327469" type="System">
+                            <param id="0" name="Variable">NPCSpider</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">10</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="6948817580969507" type="spawnPlaces">
+                            <param id="0" name="Instance variable">occupied</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="3225054851840278" type="System">
+                            <param id="0" name="Variable">NPCSpider</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="9957702283759008" type="spawnPlaces">
+                            <param id="0" name="Object">boss3</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="8175209917252784" type="spawnPlaces">
+                            <param id="0" name="Instance variable">occupied</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="7064937232243221" title="pathfinding Spiders">
+            <sub-events>
+                <event-block sid="1333171257109766">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="48173931344996" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="5" name="Add obstacle" sid="1274061442967865" type="boss3">
+                            <param id="0" name="Obstacle">maze</param>
+                        </action>
+                        <action behavior="Pathfinding" id="4" name="Regenerate obstacle map" sid="7534760679248263" type="boss3" />
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="808260936987863" type="boss3">
+                            <param id="0" name="X">random(0,LayoutWidth+1)</param>
+                            <param id="1" name="Y">random(0,LayoutHeight+1)</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="151000316417179" type="Alert_LOS" />
+                        <action id="0" name="Spawn another object" sid="7031894118955035" type="boss3">
+                            <param id="0" name="Object">Alert_LOS</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">&quot;eyes&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2361855153781861">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="0" name="On path found" sid="7100783725993067" type="boss3" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="1" name="Move along path" sid="295459002880277" type="boss3" />
+                    </actions>
+                </event-block>
+                <event-block sid="3330559159747593">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="7046142348294489" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-22" name="Set angle toward position" sid="5181075346092401" type="Alert_LOS">
+                            <param id="0" name="X">player.X</param>
+                            <param id="1" name="Y">player.Y</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="2009100104869618" type="Alert_LOS">
+                            <param id="0" name="Width">distance(boss3.X,boss3.Y,Player.X,Player.Y)</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="2735168452691492" type="Alert_LOS">
+                            <param id="0" name="Object">boss3</param>
+                            <param id="1" name="Image point (optional)">&quot;eyes&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>als alerted waar is</comment>
+                <event-block sid="2115277536992274">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="28979596301704" type="boss3">
+                            <param id="0" name="Instance variable">alerted</param>
+                        </condition>
+                        <condition id="-6" name="Every X seconds" sid="824244571253333" type="System">
+                            <param id="0" name="Interval (seconds)">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="1778921029049156" type="boss3">
+                            <param id="0" name="X">player.X</param>
+                            <param id="1" name="Y">player.Y</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="822669080154942" type="boss3">
+                            <param id="0" name="Instance variable">alertCooldown</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1544182224887346">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="3068559858580299" type="boss3">
+                            <param id="0" name="Instance variable">alerted</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="6609304558279264" type="boss3">
+                            <param id="0" name="Instance variable">alertCooldown</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="8682935992209847" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="5539236068383869" type="boss3">
+                            <param id="0" name="Instance variable">alerted</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="2061170122849651" type="System">
+                            <param id="0" name="Seconds">floor(random(2,4))</param>
+                        </action>
+                        <action behavior="Pathfinding" id="2" name="Stop" sid="4746940605073833" type="boss3" />
+                    </actions>
+                </event-block>
+                <comment>als alerted onwaar </comment>
+                <event-block sid="9005494557709788">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="7054952664114218" type="System">
+                            <param id="0" name="Interval (seconds)">5.0</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8687860422450595" type="boss3">
+                            <param id="0" name="Instance variable">alerted</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="3525984916645401" type="boss3">
+                            <param id="0" name="X">(random(0,LayoutWidth+1))</param>
+                            <param id="1" name="Y">(random(0,LayoutHeight+1))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9179256888650266">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="5" name="On arrived" sid="200206632440471" type="boss3" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="1528912384458032" type="boss3">
+                            <param id="0" name="Instance variable">alerted</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="727818426633497" type="boss3">
+                            <param id="0" name="X">(random(0,LayoutWidth+1))</param>
+                            <param id="1" name="Y">(random(0,LayoutHeight+1))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9725850296567654">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="1" name="On failed to find path" sid="4472546051604384" type="boss3" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8198159819716453" type="boss3">
+                            <param id="0" name="Instance variable">alerted</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="156523703731324" type="boss3">
+                            <param id="0" name="X">(random(0,LayoutWidth+1))</param>
+                            <param id="1" name="Y">(random(0,LayoutHeight+1))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="5128074171517927" title="lineOfSight Spider">
+            <sub-events>
+                <event-block sid="7553519129490319">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="2487005430837151" type="System">
+                            <param id="0" name="Object">boss3</param>
+                        </condition>
+                        <condition id="-15" name="Pick nearest/furthest" sid="5386547019830742" type="Alert_LOS">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="X">boss3.X</param>
+                            <param id="2" name="Y">boss3.Y</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8922348654589292">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="4663818611967814" type="Alert_LOS">
+                                    <param id="0" name="Object">maze</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="9184518223468385" type="boss3">
+                                    <param id="0" name="Instance variable">hasLineOfSight</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2175810994375931">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="1365228668696514" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="483495627408289" type="boss3">
+                                    <param id="0" name="Instance variable">hasLineOfSight</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="4803079937465906" type="boss3">
+                                    <param id="0" name="Instance variable">alertCooldown</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="956467640874069" type="boss3">
+                                    <param id="0" name="Instance variable">alerted</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="De bewegingen van de boss" sid="6245220304226344" title="animatie Spiders">
+            <sub-events>
+                <event-block any="1" sid="4662069343521484">
+                    <conditions>
+                        <condition id="-21" name="Is between values" sid="2837422265943018" type="System">
+                            <param id="0" name="Value">boss3.Pathfinding.MovingAngle</param>
+                            <param id="1" name="Lower bound">315</param>
+                            <param id="2" name="Upper bound">360</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="8604090828535864" type="System">
+                            <param id="0" name="Value">boss3.Pathfinding.MovingAngle</param>
+                            <param id="1" name="Lower bound">0</param>
+                            <param id="2" name="Upper bound">45</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="8242445360761748" type="boss3">
+                            <param id="0" name="Animation">&quot;Rechts2&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="819429130948676">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="7774573147873621" type="System">
+                            <param id="0" name="First value">boss3.Pathfinding.MovingAngle</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">45</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="4990258868164057" type="System">
+                            <param id="0" name="First value">boss3.Pathfinding.MovingAngle</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">135</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="8297674095940065" type="boss3">
+                            <param id="0" name="Animation">&quot;Omlaag2&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7897698459079976">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="921044012023733" type="System">
+                            <param id="0" name="First value">boss3.Pathfinding.MovingAngle</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">135</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="1916523466997234" type="System">
+                            <param id="0" name="First value">boss3.Pathfinding.MovingAngle</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">225</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="775209001590107" type="boss3">
+                            <param id="0" name="Animation">&quot;Links2&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4268582429337913">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="6928569907893458" type="System">
+                            <param id="0" name="First value">boss3.Pathfinding.MovingAngle</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">225</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="2209790471641131" type="System">
+                            <param id="0" name="First value">boss3.Pathfinding.MovingAngle</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">315</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="2112279455288847" type="boss3">
+                            <param id="0" name="Animation">&quot;Omhoog2&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
