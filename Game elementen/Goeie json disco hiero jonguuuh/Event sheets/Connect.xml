@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Connect</name>
+    <events>
+        <event-group description="" sid="7248241723141864" title="Manual connect">
+            <sub-events>
+                <event-block sid="8715681078006375">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="8351003529278907" type="btnManualConnect" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="7896269073189466" type="btnAutoConnect">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="2097633827313851" type="btnManualConnect">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="9545052227368062">
+                            <conditions>
+                                <condition id="0" name="Compare text" sid="6296109642938478" type="txtIP">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                    <param id="1" name="Case">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set enabled" sid="4840295262764632" type="btnAutoConnect">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="83624584545328" type="btnManualConnect">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="6982613072397158" type="txtStatus">
+                                    <param id="0" name="Text">&quot;IP can&apos;t be empty!&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1972639927002643">
+                            <conditions>
+                                <condition id="0" inverted="1" name="Compare text" sid="415529971005948" type="txtIP">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                    <param id="1" name="Case">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="685156500267939" type="txtStatus">
+                                    <param id="0" name="Text">&quot;Connecting to Philips Hue Bridge&quot;</param>
+                                </action>
+                                <action id="0" name="Manual connect Hue Bridge" sid="7232313531660677" type="PhilipsHueAPI">
+                                    <param id="0" name="IP-adres Hue Bridge">txtIP.Text</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="1756363650974049">
+                    <conditions>
+                        <condition id="5" name="Trigger when manual connect failed" sid="9833803542078871" type="PhilipsHueAPI" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="6141120225705333" type="btnAutoConnect">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="2824756788470515" type="btnManualConnect">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="8818440030840346" type="txtStatus">
+                            <param id="0" name="Text">&quot;Status: manual connect failed&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="7555256692866032" title="Auto connect">
+            <sub-events>
+                <event-block sid="7880519071711619">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="2953708514300153" type="btnAutoConnect" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set enabled" sid="1586470654172846" type="btnAutoConnect">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="1215299324824686" type="btnManualConnect">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="4" name="Auto connect Hue Bridge" sid="6207290559477087" type="PhilipsHueAPI" />
+                        <action id="0" name="Set text" sid="5437712140376132" type="txtStatus">
+                            <param id="0" name="Text">&quot;Status: searching for bridge&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3186445898973472">
+                    <conditions>
+                        <condition id="4" name="Trigger when autoconnect failed" sid="2897725003397665" type="PhilipsHueAPI" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="7787901936497878" type="txtStatus">
+                            <param id="0" name="Text">&quot;Status: bridge not found&quot;</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="50477140719895" type="btnAutoConnect">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="7272014321311867" type="btnManualConnect">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="658429526202819">
+            <conditions>
+                <condition id="6" name="Trigger when link button must be pressed" sid="6511029387042284" type="PhilipsHueAPI" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="2983976621007584" type="txtStatus">
+                    <param id="0" name="Text">&quot;Status: press link button&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4660882688719422">
+            <conditions>
+                <condition id="7" name="Trigger when connect succeeded" sid="708386630870226" type="PhilipsHueAPI" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="4276612085232462" type="txtStatus">
+                    <param id="0" name="Text">&quot;Status: connection succeeded :D&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="8436609798198451" title="Arranging lights">
+            <sub-events>
+                <event-block sid="6187853133430664">
+                    <conditions>
+                        <condition id="2" name="Trigger when list of lights is recieved" sid="2956083815083263" type="PhilipsHueAPI" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="849416169948877" type="txtStatus">
+                            <param id="0" name="Text">&quot;Status: light list recieved&quot;</param>
+                        </action>
+                        <action id="2" name="Set visible" sid="4887687441160391" type="btnAutoConnect">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="2" name="Set visible" sid="757547633609505" type="btnManualConnect">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="3" name="Set visible" sid="9361980106177046" type="txtIP">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="2" name="Set visible" sid="6614191388418223" type="lstLeft">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="2" name="Set visible" sid="1289542030460389" type="lstMiddle">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="2" name="Set visible" sid="3021815294633461" type="lstRight">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="8406692177515751" type="txtLstboxes">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="2" name="Set visible" sid="825221649992364" type="btnSetSlots">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="2" name="Set visible" sid="6766186749641378" type="lstLightMode">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5169879939850695">
+                    <conditions>
+                        <condition id="8" name="Loop over recieved lights" sid="6331678570356314" type="PhilipsHueAPI" />
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Add item" sid="4005150400266986" type="lstLeft">
+                            <param id="0" name="Text">PhilipsHueAPI.currentLightID</param>
+                        </action>
+                        <action id="7" name="Add item" sid="9389478948529102" type="lstMiddle">
+                            <param id="0" name="Text">PhilipsHueAPI.currentLightID</param>
+                        </action>
+                        <action id="7" name="Add item" sid="6098661159201471" type="lstRight">
+                            <param id="0" name="Text">PhilipsHueAPI.currentLightID</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3082223689260043">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="9792950615905317" type="btnSetSlots" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1819884648014686">
+                            <conditions>
+                                <condition id="4" name="Compare selected item text" sid="779489855397485" type="lstLightMode">
+                                    <param id="0" name="Text to compare">&quot;2&quot;</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                                <condition id="4" inverted="1" name="Compare selected item text" sid="5002237608610905" type="lstLeft">
+                                    <param id="0" name="Text to compare">lstRight.SelectedText</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set a light to a specific slot" sid="6553187489360297" type="PhilipsHueAPI">
+                                    <param id="0" name="Lamp ID">int(lstLeft.SelectedText)</param>
+                                    <param id="1" name="Choose a slot to set">0</param>
+                                </action>
+                                <action id="2" name="Set a light to a specific slot" sid="2763364469106108" type="PhilipsHueAPI">
+                                    <param id="0" name="Lamp ID">int(lstRight.SelectedText)</param>
+                                    <param id="1" name="Choose a slot to set">2</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="9159293229318721" type="System">
+                                    <param id="0" name="Layout">Colors</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7116980315700871">
+                            <conditions>
+                                <condition id="4" name="Compare selected item text" sid="759347615295319" type="lstLightMode">
+                                    <param id="0" name="Text to compare">&quot;1&quot;</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set a light to a specific slot" sid="7278625048484275" type="PhilipsHueAPI">
+                                    <param id="0" name="Lamp ID">int(lstMiddle.SelectedText)</param>
+                                    <param id="1" name="Choose a slot to set">1</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="454458703520279" type="System">
+                                    <param id="0" name="Layout">Colors</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1224017462331165">
+                            <conditions>
+                                <condition id="4" name="Compare selected item text" sid="6341471913244684" type="lstLightMode">
+                                    <param id="0" name="Text to compare">&quot;3&quot;</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                                <condition id="4" name="Compare selected item text" sid="2272000818431548" type="lstLeft">
+                                    <param id="0" name="Text to compare">lstRight.SelectedText</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                                <condition id="4" name="Compare selected item text" sid="7202611579917099" type="lstLeft">
+                                    <param id="0" name="Text to compare">lstMiddle.SelectedText</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                                <condition id="4" name="Compare selected item text" sid="9338386997423394" type="lstMiddle">
+                                    <param id="0" name="Text to compare">lstRight.SelectedText</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="4035715934947103" type="txtStatus">
+                                    <param id="0" name="Text">&quot;CAN&apos;T SET ONE LIGHT TO TWO SLOTS&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3375783613243869">
+                            <conditions>
+                                <condition id="4" name="Compare selected item text" sid="8434417492301461" type="lstLightMode">
+                                    <param id="0" name="Text to compare">&quot;2&quot;</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                                <condition id="4" name="Compare selected item text" sid="3958558543010859" type="lstLeft">
+                                    <param id="0" name="Text to compare">lstRight.SelectedText</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="8069415882460386" type="txtStatus">
+                                    <param id="0" name="Text">&quot;CAN&apos;T SET ONE LIGHT TO TWO SLOTS&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7908792234108347">
+                            <conditions>
+                                <condition id="4" name="Compare selected item text" sid="8987469948687339" type="lstLightMode">
+                                    <param id="0" name="Text to compare">&quot;3&quot;</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                                <condition id="4" inverted="1" name="Compare selected item text" sid="7402317187122279" type="lstLeft">
+                                    <param id="0" name="Text to compare">lstRight.SelectedText</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                                <condition id="4" inverted="1" name="Compare selected item text" sid="6222717434595129" type="lstLeft">
+                                    <param id="0" name="Text to compare">lstMiddle.SelectedText</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                                <condition id="4" inverted="1" name="Compare selected item text" sid="3192698247114565" type="lstMiddle">
+                                    <param id="0" name="Text to compare">lstRight.SelectedText</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set a light to a specific slot" sid="9308606614965795" type="PhilipsHueAPI">
+                                    <param id="0" name="Lamp ID">int(lstLeft.SelectedText)</param>
+                                    <param id="1" name="Choose a slot to set">0</param>
+                                </action>
+                                <action id="2" name="Set a light to a specific slot" sid="2800977926183839" type="PhilipsHueAPI">
+                                    <param id="0" name="Lamp ID">int(lstMiddle.SelectedText)</param>
+                                    <param id="1" name="Choose a slot to set">1</param>
+                                </action>
+                                <action id="2" name="Set a light to a specific slot" sid="8702259440864851" type="PhilipsHueAPI">
+                                    <param id="0" name="Lamp ID">int(lstRight.SelectedText)</param>
+                                    <param id="1" name="Choose a slot to set">2</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="1489488754936266" type="System">
+                                    <param id="0" name="Layout">Colors</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="1100524257341719">
+                    <conditions>
+                        <condition id="1" name="On selection changed" sid="6684391543381509" type="lstLightMode" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="621218687849259">
+                            <conditions>
+                                <condition id="4" name="Compare selected item text" sid="2724674843040831" type="lstLightMode">
+                                    <param id="0" name="Text to compare">&quot;1&quot;</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set enabled" sid="5439879747972233" type="lstLeft">
+                                    <param id="0" name="Mode">0</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="5583347127332091" type="lstRight">
+                                    <param id="0" name="Mode">0</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="8316128905625274" type="lstMiddle">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3500390107809668">
+                            <conditions>
+                                <condition id="4" name="Compare selected item text" sid="6433110449507348" type="lstLightMode">
+                                    <param id="0" name="Text to compare">&quot;2&quot;</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set enabled" sid="8744113655214513" type="lstLeft">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="5354908267083272" type="lstRight">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="5627210485157974" type="lstMiddle">
+                                    <param id="0" name="Mode">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="66637289950626">
+                            <conditions>
+                                <condition id="4" name="Compare selected item text" sid="2457047676470238" type="lstLightMode">
+                                    <param id="0" name="Text to compare">&quot;3&quot;</param>
+                                    <param id="1" name="Case sensitivity">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set enabled" sid="9106267715241315" type="lstLeft">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="7756479358807565" type="lstRight">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                                <action id="3" name="Set enabled" sid="360990889166942" type="lstMiddle">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

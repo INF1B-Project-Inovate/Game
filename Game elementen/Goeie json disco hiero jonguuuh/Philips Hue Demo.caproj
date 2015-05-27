@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Philips Hue Demo</name>
+    <description></description>
+    <version>1.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website></author-website>
+    <app-id></app-id>
+    <unique-id>2qpiupr2gjili</unique-id>
+    <saved-with-version>19500</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="List" version="1">List</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Pascal Drewes - Stenden University - INF1B" id="PhilipsHue" version="0.100000001">Philips Hue API</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Zack0Wack0/Scirra" id="WebStorage" version="1">WebStorage</plugin>
+        <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Turret" version="1">Turret</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>320</width>
+        <height>180</height>
+    </window-size>
+    <pixel-rounding>1</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>Home</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">No</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox integer scale</prop>
+        <prop name="Fullscreen scaling">Low quality</prop>
+        <prop name="Fullscreen scaling quality">Low</prop>
+        <prop name="Hide address bar">No</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Point</prop>
+        <prop name="Use iOS retina display">All devices</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-folder name="General">
+            <object-type name="Audio" sid="2722091819329769">
+                <plugin id="Audio" />
+            </object-type>
+            <object-type name="Browser" sid="3498868852026895">
+                <plugin id="Browser" />
+            </object-type>
+            <object-type name="Gamepad" sid="996683554706134">
+                <plugin id="gamepad" />
+            </object-type>
+            <object-type name="Keyboard" sid="4436305314906168">
+                <plugin id="Keyboard" />
+            </object-type>
+            <object-type name="Mouse" sid="3506161195311074">
+                <plugin id="Mouse" />
+            </object-type>
+            <object-type name="PhilipsHueAPI" sid="2059888653329034">
+                <plugin id="PhilipsHue" />
+            </object-type>
+            <object-type name="WebStorage" sid="1510269620771624">
+                <plugin id="WebStorage" />
+            </object-type>
+            <object-type name="Touch" sid="2463496682349194">
+                <plugin id="Touch" />
+            </object-type>
+            <object-type name="AJAX" sid="7978103029714216">
+                <plugin id="AJAX" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Home">
+            <object-type name="btnNext" sid="431286463557888">
+                <plugin id="Button" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Connect">
+            <object-type name="btnAutoConnect" sid="7620060820906396">
+                <plugin id="Button" />
+            </object-type>
+            <object-type name="btnManualConnect" sid="6325724654884436">
+                <plugin id="Button" />
+            </object-type>
+            <object-type name="btnSetSlots" sid="4139804059067031">
+                <plugin id="Button" />
+            </object-type>
+            <object-type name="lstLeft" sid="8154274499325456">
+                <plugin id="List" />
+            </object-type>
+            <object-type name="lstLightMode" sid="6714520650420997">
+                <plugin id="List" />
+            </object-type>
+            <object-type name="lstMiddle" sid="6873531864659377">
+                <plugin id="List" />
+            </object-type>
+            <object-type name="lstRight" sid="830646508846927">
+                <plugin id="List" />
+            </object-type>
+            <object-type name="txtIP" sid="88483173506062">
+                <plugin id="TextBox" />
+            </object-type>
+            <object-type name="txtLstboxes" sid="8305912375605548">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="txtStatus" sid="646570453966738">
+                <plugin id="Text" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Colors">
+            <object-type name="clrBlue" sid="8264037751800394">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="4631326241542695">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2166662238168657" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="clrGreen" sid="9253214655109523">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="1344269284479391">
+                        <behavior id="solid" />
+                    </behavior-type>
+                    <behavior-type name="Turret" sid="2097250481337668">
+                        <behavior id="Turret" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7636007028004022" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="clrRed" sid="5506326462045403">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="5526239274827294">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6474477462795379" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="touchTrack" sid="7985520509230188">
+                <plugin id="Text" />
+                <instance-variables>
+                    <instance-variable name="id" sid="1990531258653533" type="number" />
+                </instance-variables>
+            </object-type>
+            <object-type name="fanaTXT" sid="5593200642935787">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="fanaStick" sid="4877884804905984">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="radius" sid="9808923947047137" type="number" />
+                    <instance-variable name="XP" sid="4354517734289089" type="number" />
+                    <instance-variable name="YP" sid="1739972149795563" type="number" />
+                    <instance-variable name="dist" sid="3046173521625643" type="number" />
+                    <instance-variable name="conAngle" sid="4065153938040324" type="number" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4952305615937938" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="fanaRangeBox" sid="4486814155147944">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1977745913484464" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="fanaPad" sid="5123623467587693">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8052385441863409" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="player" sid="4872570103721662">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="8Direction" sid="1964360054945546">
+                        <behavior id="EightDir" />
+                    </behavior-type>
+                    <behavior-type name="BoundToLayout" sid="9263760179723338">
+                        <behavior id="bound" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5483170737404761" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Function" sid="4328681815798771">
+                <plugin id="Function" />
+            </object-type>
+        </object-folder>
+        <object-type name="user" sid="7503650485895155">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="BoundToLayout" sid="8691443154241097">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="8Direction" sid="6972972693675721">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6087364452025287" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="Array" sid="183929186323129">
+            <plugin id="Arr" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Home.xml</layout>
+        <layout>Connect.xml</layout>
+        <layout>Colors.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Home.xml</event-sheet>
+        <event-sheet>Connect.xml</event-sheet>
+        <event-sheet>Colors.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="WebStorage" uid="1" />
+        <global-instance type="Gamepad" uid="2">
+            <properties>
+                <analog-deadzone>25</analog-deadzone>
+            </properties>
+        </global-instance>
+        <global-instance type="Keyboard" uid="3" />
+        <global-instance type="Mouse" uid="4" />
+        <global-instance type="Touch" uid="5">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Audio" uid="6">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+                <speed-of-sound>5000</speed-of-sound>
+                <doppler-factor>1</doppler-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="Browser" uid="7" />
+        <global-instance type="PhilipsHueAPI" uid="9" />
+        <global-instance type="Function" uid="31" />
+        <global-instance type="AJAX" uid="33" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+        <file name="disco.json" />
+    </files-folder>
+</c2project>
