@@ -2,7 +2,7 @@
     return {
         "name": "Philips Hue API",				// as appears in 'insert object' dialog, can be changed as long as "id" stays the same
         "id": "PhilipsHue",				// this is used to identify this plugin and is saved to the project; never change it
-        "version": "0.1",					// (float in x.y format) Plugin version - C2 shows compatibility warnings based on this
+        "version": "1.0",					// (float in x.y format) Plugin version - C2 shows compatibility warnings based on this
         "description": "This plugin controls Philips Hues Lights",
         "author": "Pascal Drewes - Stenden University - INF1B",
         "help url": "https://github.com/INF1B-Project-Inovate/game",
@@ -207,7 +207,7 @@ AddExpression(2, ef_return_string, "(JSON) All available lights",
     "Een JSON string met alle beschikbare lampen op de bridge");
 
 AddExpression(3, ef_return_string, "(JSON) All used lights",
-    "Lights used",
+    "Lights",
     "usedLights",
     "Een JSON string met alle beschikbare lampen op de bridge");
 
@@ -215,6 +215,11 @@ AddExpression(4, ef_return_string, "Current light ID (in the loop)",
     "Lights",
     "currentLightID",
     "Dit is de ID van de volgende lamp in de loop");
+
+AddExpression(5, ef_return_string, "Current IP adress of the bridge",
+    "Bridge",
+    "BridgeIP",
+    "Het IP adress van de Philips Hue bridge");
 
 
 ////////////////////////////////////////
@@ -231,7 +236,7 @@ ACESDone();
 // new cr.Property(ept_link,		name,	link_text,		description, "firstonly")		// has no associated value; simply calls "OnPropertyChanged" on click
 
 var property_list = [
-	//new cr.Property(ept_text, 	"Hue Bridge IP",		"<auto>",		"This specifies the Hue Bridge IP, type <auto> for automatic discovery.")
+	//new cr.Property(ept_combo, 	"Debug mode",		"True",		"If set to true, logging will be enabled.", "True|False")
 ];
 
 // Called by IDE when a new object type is to be created

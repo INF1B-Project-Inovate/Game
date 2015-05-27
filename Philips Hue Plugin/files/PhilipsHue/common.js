@@ -31,14 +31,14 @@ function MeetHueLookup(app) {
 }
 
 function checkPermission(app) {
-    console.log("checkPermission:: url:");
-    console.log('http://' + app.bridgeIP + '/api/' + app.username);
+    //console.log("checkPermission:: url:");
+    //console.log('http://' + app.bridgeIP + '/api/' + app.username);
     console.log(app);
     $.ajax('http://' + app.bridgeIP + '/api/' + app.username, {
         type: 'GET',
         success: function (data) {
-            console.log("CheckPermission:: response okay");
-            console.log(data);
+            //console.log("CheckPermission:: response okay");
+            //console.log(data);
             //console.log('Error in data: '+(data[0].hasOwnProperty("error")));
 
             if (data[0] != undefined) {
@@ -76,7 +76,7 @@ function checkPermission(app) {
                 app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigConnectSucceeded, app);
             }
             if ("lights" in data == true) {
-                console.log('SUCCESS Key exists :: data.lights: ' + app.username);
+                //console.log('SUCCESS Key exists :: data.lights: ' + app.username);
                 app.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigConnectSucceeded, app);
                 listLights(app);
             }
@@ -96,8 +96,8 @@ function listLights(app) {
     $.ajax('http://' + app.bridgeIP + '/api/' + app.username + '/lights', {
         type: 'GET',
         success: function(data) {
-            console.log("listLights:: success");
-            console.log(data);
+            //console.log("listLights:: success");
+            //console.log(data);
             if(data.length != 0) {
                 $.each(data, function(i, val) {
                     if(val.state.reachable == true) {
@@ -115,11 +115,11 @@ function listLights(app) {
 }
 
 function setColor(app, lampSlot, Hue, Saturation, Brightness, Time) {
-    console.log("::setColor::");
+    //console.log("::setColor::");
     lightID = app.usedLights[lampSlot];
     console.log(lightID, Hue, Saturation, Brightness, Time);
     if (lightID == null) {
-        alert("Light does not exist!");
+        console.log("::setColor:: Light " + lampSlot + " does not exist!");
     } else {
         $.ajax('http://' + app.bridgeIP + '/api/' + app.username + '/lights/' + lightID + '/state', {
             type: 'PUT',
@@ -132,8 +132,10 @@ function setColor(app, lampSlot, Hue, Saturation, Brightness, Time) {
                 "transitiontime": Time
             }),
             success: function(data) {
-                console.log("setColor:: success");
-                console.log(data);
+                if(data[0].hasOwnProperty("error")) {
+                    console.log("setColor:: success");
+                    console.log(data);
+                }
             },
             error: function(data) {
                 console.log("setColor:: error");

@@ -157,23 +157,23 @@ cr.plugins_.PhilipsHue = function (runtime) {
     };
 
     Acts.prototype.manualConnectHueBridge = function (ip) {
-        //if(validIP(ip)){
+        if(validIP(ip)){
             this.bridgeIP = ip;
             checkPermission(this);
-        //} else {
-        //    this.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigManConnectFailed, this);
-        //}
+        } else {
+            this.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigManConnectFailed, this);
+        }
         
     };
 
     Acts.prototype.gainPermission = function () {
-        // nope
+        // nope (deprecated)
     };
 
     Acts.prototype.setLightSlot = function (lampID, lampSlot) {
         this.usedLights[lampSlot] = lampID;
-        console.log("::setLightSlot::");
-        console.log("lampID: " + lampID + " -- lampSlot: " + lampSlot);
+        //console.log("::setLightSlot::");
+        //console.log("lampID: " + lampID + " -- lampSlot: " + lampSlot);
     };
 
     Acts.prototype.setLightColor = function (lampSlot, Hue, Saturation, Brightness, Time) {
