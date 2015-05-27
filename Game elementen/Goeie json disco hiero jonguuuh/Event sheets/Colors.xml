@@ -272,7 +272,12 @@
                     <param id="0" name="Object">clrBlue</param>
                 </condition>
             </conditions>
-            <actions />
+            <actions>
+                <action id="-9" name="Set value" sid="6620290448449935" type="System">
+                    <param id="0" name="Variable">do_disco</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block sid="7186267796588206">
                     <conditions>
@@ -528,7 +533,7 @@
             <actions>
                 <action id="0" name="Request URL" sid="3699296917988616" type="AJAX">
                     <param id="0" name="Tag">&quot;getJSON&quot;</param>
-                    <param id="1" name="URL">&quot;disco.json&quot;</param>
+                    <param id="1" name="URL">&quot;http://localhost/disco.php&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -546,29 +551,33 @@
                     <param id="0" name="Variable">do_disco</param>
                     <param id="1" name="Value">1</param>
                 </action>
+                <action id="14" name="Log" sid="9907803571576519" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">Array.AsJSON</param>
+                </action>
             </actions>
         </event-block>
-        <event-block sid="3824406444680409">
+        <event-block sid="1391324325388981">
             <conditions>
-                <condition id="-14" name="Compare variable" sid="9495508706560143" type="System">
+                <condition id="-14" name="Compare variable" sid="1610776283654488" type="System">
                     <param id="0" name="Variable">do_disco</param>
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">1</param>
                 </condition>
+                <condition id="3" name="For each element" sid="5906758410215381" type="Array">
+                    <param id="0" name="Axes">2</param>
+                </condition>
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="618108978761479">
+                <event-block sid="4040410808448284">
                     <conditions>
-                        <condition id="3" name="For each element" sid="9876889545192204" type="Array">
-                            <param id="0" name="Axes">2</param>
-                        </condition>
-                        <condition id="3" name="Which lights are available" sid="2105805356878332" type="PhilipsHueAPI">
+                        <condition id="3" name="Which lights are available" sid="4982949494601282" type="PhilipsHueAPI">
                             <param id="0" name="Choose a lightmode">2</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="3" name="Set a light to a specific Color" sid="4425357079990144" type="PhilipsHueAPI">
+                        <action id="3" name="Set a light to a specific Color" sid="4702608753941054" type="PhilipsHueAPI">
                             <param id="0" name="Choose a slot">0</param>
                             <param id="1" name="Hue">Array.At(Array.CurX, 0, 0)</param>
                             <param id="2" name="Saturation">Array.At(Array.CurX, 0, 1)</param>
@@ -576,22 +585,19 @@
                             <param id="4" name="Time">0</param>
                             <param id="5" name="Lamp on?">0</param>
                         </action>
-                        <action id="-16" name="Wait" sid="4748865494168814" type="System">
-                            <param id="0" name="Seconds">Array.At(Array.CurX, 0, 3)</param>
+                        <action id="-16" name="Wait" sid="7868272834462988" type="System">
+                            <param id="0" name="Seconds">int(Array.At(Array.CurX, 0, 3))*Array.CurX*10</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="5580274329666222">
+                <event-block sid="7713876688543102">
                     <conditions>
-                        <condition id="3" name="For each element" sid="9837002190472267" type="Array">
-                            <param id="0" name="Axes">2</param>
-                        </condition>
-                        <condition id="3" name="Which lights are available" sid="9819927736662059" type="PhilipsHueAPI">
+                        <condition id="3" name="Which lights are available" sid="6668705594038132" type="PhilipsHueAPI">
                             <param id="0" name="Choose a lightmode">2</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="3" name="Set a light to a specific Color" sid="9683069173210281" type="PhilipsHueAPI">
+                        <action id="3" name="Set a light to a specific Color" sid="4523210388365593" type="PhilipsHueAPI">
                             <param id="0" name="Choose a slot">1</param>
                             <param id="1" name="Hue">Array.At(Array.CurX, 1, 0)</param>
                             <param id="2" name="Saturation">Array.At(Array.CurX, 1, 1)</param>
@@ -599,22 +605,19 @@
                             <param id="4" name="Time">0</param>
                             <param id="5" name="Lamp on?">0</param>
                         </action>
-                        <action id="-16" name="Wait" sid="8924183929095882" type="System">
-                            <param id="0" name="Seconds">Array.At(Array.CurX, 1, 3)</param>
+                        <action id="-16" name="Wait" sid="2960764837350964" type="System">
+                            <param id="0" name="Seconds">int(Array.At(Array.CurX, 1, 3))*Array.CurX*10</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="8316283359465626">
+                <event-block sid="2714489679980758">
                     <conditions>
-                        <condition id="3" name="For each element" sid="5425088725788559" type="Array">
-                            <param id="0" name="Axes">2</param>
-                        </condition>
-                        <condition id="3" name="Which lights are available" sid="9304331884703063" type="PhilipsHueAPI">
+                        <condition id="3" name="Which lights are available" sid="9428778636084068" type="PhilipsHueAPI">
                             <param id="0" name="Choose a lightmode">2</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="3" name="Set a light to a specific Color" sid="7194763290336824" type="PhilipsHueAPI">
+                        <action id="3" name="Set a light to a specific Color" sid="9412670601026768" type="PhilipsHueAPI">
                             <param id="0" name="Choose a slot">2</param>
                             <param id="1" name="Hue">Array.At(Array.CurX, 2, 0)</param>
                             <param id="2" name="Saturation">Array.At(Array.CurX, 2, 1)</param>
@@ -622,12 +625,44 @@
                             <param id="4" name="Time">0</param>
                             <param id="5" name="Lamp on?">0</param>
                         </action>
-                        <action id="-16" name="Wait" sid="2759471601664525" type="System">
-                            <param id="0" name="Seconds">Array.At(Array.CurX, 2, 3)</param>
+                        <action id="-16" name="Wait" sid="9050438254657955" type="System">
+                            <param id="0" name="Seconds">int(Array.At(Array.CurX, 2, 3))*Array.CurX*10</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block disabled="1" sid="6628431121655266">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="2645894485723384" type="System">
+                    <param id="0" name="Variable">do_disco</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="3" name="For each element" sid="5932227220288899" type="Array">
+                    <param id="0" name="Axes">2</param>
+                </condition>
+                <condition id="3" name="Which lights are available" sid="6390686973643256" type="PhilipsHueAPI">
+                    <param id="0" name="Choose a lightmode">2</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block disabled="1" sid="3677269594496267">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="3866557634589104" type="System">
+                    <param id="0" name="Variable">do_disco</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="3" name="For each element" sid="4198444883732718" type="Array">
+                    <param id="0" name="Axes">2</param>
+                </condition>
+                <condition id="3" name="Which lights are available" sid="5956004494392493" type="PhilipsHueAPI">
+                    <param id="0" name="Choose a lightmode">2</param>
+                </condition>
+            </conditions>
+            <actions />
         </event-block>
     </events>
 </c2eventsheet>
