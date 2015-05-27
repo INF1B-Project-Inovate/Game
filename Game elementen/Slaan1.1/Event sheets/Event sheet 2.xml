@@ -83,9 +83,6 @@
                 <event-block sid="2361855153781861">
                     <conditions>
                         <condition behavior="Pathfinding" id="0" name="On path found" sid="7100783725993067" type="boss3" />
-                        <condition id="-11" name="For Each" sid="7080304712636635" type="System">
-                            <param id="0" name="Object">boss3</param>
-                        </condition>
                     </conditions>
                     <actions>
                         <action behavior="Pathfinding" id="1" name="Move along path" sid="295459002880277" type="boss3" />
@@ -116,7 +113,7 @@
                             <param id="0" name="Instance variable">alerted</param>
                         </condition>
                         <condition id="-6" name="Every X seconds" sid="824244571253333" type="System">
-                            <param id="0" name="Interval (seconds)">1.0</param>
+                            <param id="0" name="Interval (seconds)">1</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -204,6 +201,9 @@
             <sub-events>
                 <event-block sid="7553519129490319">
                     <conditions>
+                        <condition id="-11" name="For Each" sid="2487005430837151" type="System">
+                            <param id="0" name="Object">boss3</param>
+                        </condition>
                         <condition id="-15" name="Pick nearest/furthest" sid="5386547019830742" type="Alert_LOS">
                             <param id="0" name="Which">0</param>
                             <param id="1" name="X">boss3.X</param>
