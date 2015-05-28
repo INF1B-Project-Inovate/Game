@@ -1,0 +1,745 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>UI V1</name>
+    <description></description>
+    <version>1.0</version>
+    <author>Harm</author>
+    <author-email></author-email>
+    <author-website></author-website>
+    <app-id></app-id>
+    <unique-id>2qpiupr2gjili</unique-id>
+    <saved-with-version>19500</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Zack0Wack0/Scirra" id="WebStorage" version="1">WebStorage</plugin>
+        <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
+        <plugin author="Scirra" id="sliderbar" version="1">Slider bar</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>854</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>1</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">No</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox integer scale</prop>
+        <prop name="Fullscreen scaling">Low quality</prop>
+        <prop name="Fullscreen scaling quality">Low</prop>
+        <prop name="Hide address bar">No</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Point</prop>
+        <prop name="Use iOS retina display">All devices</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-folder name="LifeBar">
+            <object-type name="Blok1_1" sid="2862029976484116">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="993956545673116" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.25" />
+                                <point x="0.745714" y="0.254286" />
+                                <point x="0.745714" y="0.5" />
+                                <point x="0.712857" y="0.712857" />
+                                <point x="0.287143" y="0.712857" />
+                                <point x="0.247143" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Blok2_1" sid="1779078213499747">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7543166386338161" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.25" />
+                                <point x="0.745714" y="0.254286" />
+                                <point x="0.745714" y="0.5" />
+                                <point x="0.712857" y="0.712857" />
+                                <point x="0.287143" y="0.712857" />
+                                <point x="0.247143" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Blok1_2" sid="2584785049156484">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9468571197580112" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.25" />
+                                <point x="0.745714" y="0.254286" />
+                                <point x="0.745714" y="0.5" />
+                                <point x="0.712857" y="0.712857" />
+                                <point x="0.287143" y="0.712857" />
+                                <point x="0.247143" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Blok2_2" sid="9780108759318262">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9139359443560719" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.25" />
+                                <point x="0.745714" y="0.254286" />
+                                <point x="0.745714" y="0.5" />
+                                <point x="0.712857" y="0.712857" />
+                                <point x="0.287143" y="0.712857" />
+                                <point x="0.247143" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Blok3_1" sid="7204820477919936">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4393574088698352" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.25" />
+                                <point x="0.745714" y="0.254286" />
+                                <point x="0.745714" y="0.5" />
+                                <point x="0.712857" y="0.712857" />
+                                <point x="0.287143" y="0.712857" />
+                                <point x="0.247143" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Blok3_2" sid="3126577158167759">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2251714743282162" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.25" />
+                                <point x="0.745714" y="0.254286" />
+                                <point x="0.745714" y="0.5" />
+                                <point x="0.712857" y="0.712857" />
+                                <point x="0.287143" y="0.712857" />
+                                <point x="0.247143" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="BossBar_empty" sid="9974785318208548">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9994859947108578" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\BossBar_empty.png">
+                            <collision-poly>
+                                <point x="0.5" y="0.348837" />
+                                <point x="0.897143" y="0.418605" />
+                                <point x="0.9" y="0.593023" />
+                                <point x="0.5" y="0.651163" />
+                                <point x="0.162857" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="BossBar_HP" sid="4085081457232604">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4938593661180925" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\BossBar_HP.png">
+                            <collision-poly>
+                                <point x="0.5" y="0.348837" />
+                                <point x="0.897143" y="0.418605" />
+                                <point x="0.9" y="0.593023" />
+                                <point x="0.5" y="0.651163" />
+                                <point x="0.262857" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="HP_Background" sid="3990099533650996">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1423528484305513" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Naamloos-1.png">
+                            <collision-poly>
+                                <point x="0.23" y="0.23" />
+                                <point x="0.768571" y="0.231429" />
+                                <point x="0.768571" y="0.5" />
+                                <point x="0.734286" y="0.734286" />
+                                <point x="0.265714" y="0.734286" />
+                                <point x="0.222857" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="Thumbstick">
+            <object-type name="fanaRangeBox" sid="5561104178423062">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9977240470666593" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="fanaPad" sid="5939202543890003">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3608727184447551" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="fanaStick" sid="6939720344973008">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="radius" sid="3019312500031385" type="number" />
+                    <instance-variable name="XP" sid="3201827624284864" type="number" />
+                    <instance-variable name="YP" sid="6680913690179228" type="number" />
+                    <instance-variable name="dist" sid="3552138088380642" type="number" />
+                    <instance-variable name="conAngle" sid="1152021640282688" type="number" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1509260054823434" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="fanaTXT" sid="2863078582035459">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="LifeText" sid="2787925951146054">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8598740004474424" speed="5">
+                        <frame duration="1" hotspotX="0.502645" hotspotY="0.502645" original-source="C:\Users\Harm\Desktop\Naamloos-2.png">
+                            <collision-poly>
+                                <point x="0.455026" y="0.455026" />
+                                <point x="0.544974" y="0.455026" />
+                                <point x="0.518519" y="0.497355" />
+                                <point x="0.518519" y="0.518519" />
+                                <point x="0.507937" y="0.492063" />
+                                <point x="0.338624" y="0.497355" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="player" sid="9770690602250669">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="8Direction" sid="253130217105075">
+                        <behavior id="EightDir" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3773832637773913" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="LifeValue" sid="5007221250650899">
+                <plugin id="sliderbar" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Keys">
+            <object-type name="Bosskey_Pickup" sid="9755351000364896">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9132145968796518" speed="5">
+                        <frame duration="1" hotspotX="0.507937" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Golden_key.png">
+                            <collision-poly>
+                                <point x="0.126984" y="0.0930233" />
+                                <point x="0.492063" y="0" />
+                                <point x="0.888889" y="0.0813954" />
+                                <point x="0.888889" y="0.5" />
+                                <point x="0.730159" y="0.802326" />
+                                <point x="0.492063" y="1" />
+                                <point x="0.111111" y="0.918605" />
+                                <point x="0.15873" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Bosskey_UI" sid="2901723799123899">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1018434173078773" speed="5">
+                        <frame duration="1" hotspotX="0.507937" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Golden_key.png">
+                            <collision-poly>
+                                <point x="0.126984" y="0.0930233" />
+                                <point x="0.492063" y="0" />
+                                <point x="0.888889" y="0.0813954" />
+                                <point x="0.888889" y="0.5" />
+                                <point x="0.730159" y="0.802326" />
+                                <point x="0.492063" y="1" />
+                                <point x="0.111111" y="0.918605" />
+                                <point x="0.15873" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Bosskey_UI_Grey" sid="1741595568054049">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7468311977060894" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Golden_key_empty.png">
+                            <collision-poly>
+                                <point x="0.21" y="0.21" />
+                                <point x="0.5" y="0.07" />
+                                <point x="0.8" y="0.2" />
+                                <point x="0.75" y="0.5" />
+                                <point x="0.65" y="0.65" />
+                                <point x="0.5" y="0.93" />
+                                <point x="0.24" y="0.76" />
+                                <point x="0.26" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Key_Pickup" sid="8533474456216902">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="132376820470298" speed="5">
+                        <frame duration="1" hotspotX="0.507937" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Key.png">
+                            <collision-poly>
+                                <point x="0.126984" y="0.0930233" />
+                                <point x="0.492063" y="0" />
+                                <point x="0.888889" y="0.0813954" />
+                                <point x="0.888889" y="0.5" />
+                                <point x="0.730159" y="0.802326" />
+                                <point x="0.492063" y="1" />
+                                <point x="0.111111" y="0.918605" />
+                                <point x="0.15873" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Key_UI" sid="6796075144401221">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1083374432045607" speed="5">
+                        <frame duration="1" hotspotX="0.507937" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Key.png">
+                            <collision-poly>
+                                <point x="0.126984" y="0.0930233" />
+                                <point x="0.492063" y="0" />
+                                <point x="0.888889" y="0.0813954" />
+                                <point x="0.888889" y="0.5" />
+                                <point x="0.730159" y="0.802326" />
+                                <point x="0.492063" y="1" />
+                                <point x="0.111111" y="0.918605" />
+                                <point x="0.15873" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Key_UI_Grey" sid="2565400005466384">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1424206633563035" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Key_empty.png">
+                            <collision-poly>
+                                <point x="0.21" y="0.21" />
+                                <point x="0.5" y="0.07" />
+                                <point x="0.8" y="0.2" />
+                                <point x="0.75" y="0.5" />
+                                <point x="0.65" y="0.65" />
+                                <point x="0.5" y="0.93" />
+                                <point x="0.24" y="0.76" />
+                                <point x="0.26" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Key_UI_Text" sid="2422547550942833">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Bosskey_UI_Text" sid="9148399287859348">
+                <plugin id="Text" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Buttons">
+            <object-type name="Button_B" sid="9244786800381713">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9591801583991103" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Button_B.png">
+                            <collision-poly>
+                                <point x="0.145833" y="0.145833" />
+                                <point x="0.5" y="0.0104167" />
+                                <point x="0.84375" y="0.15625" />
+                                <point x="0.989583" y="0.5" />
+                                <point x="0.84375" y="0.84375" />
+                                <point x="0.5" y="1" />
+                                <point x="0.145833" y="0.854167" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Button_A" sid="2393728466185895">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6076757740216673" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Button_A.png">
+                            <collision-poly>
+                                <point x="0.145833" y="0.145833" />
+                                <point x="0.5" y="0.0104167" />
+                                <point x="0.854167" y="0.145833" />
+                                <point x="0.989583" y="0.5" />
+                                <point x="0.854167" y="0.854167" />
+                                <point x="0.5" y="1" />
+                                <point x="0.145833" y="0.854167" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ButtonB_Text" sid="2503662978392602">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="ButtonA_Text" sid="2975106762479959">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Inventory_Text" sid="568529284927141">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="InventoryIcon" sid="1048483010475787">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3923989169410259" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\100px-Inventory1.png">
+                            <collision-poly>
+                                <point x="0.13" y="0.13" />
+                                <point x="0.5" y="0" />
+                                <point x="0.87" y="0.13" />
+                                <point x="1" y="0.5" />
+                                <point x="0.87" y="0.87" />
+                                <point x="0.5" y="1" />
+                                <point x="0.13" y="0.87" />
+                                <point x="0.07" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Inventory_Text_Close" sid="5645122817489685">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Settings" sid="7200108614076045">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7889133777891537" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Settings.png">
+                            <collision-poly>
+                                <point x="0.0486111" y="0.0486111" />
+                                <point x="0.5" y="0" />
+                                <point x="0.951389" y="0.0486111" />
+                                <point x="1" y="0.5" />
+                                <point x="0.951389" y="0.951389" />
+                                <point x="0.5" y="1" />
+                                <point x="0.0486111" y="0.951389" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Settings_Text_Close" sid="778766010572059">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Settings_Text" sid="2146498322768962">
+                <plugin id="Text" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Money">
+            <object-type name="Money_Text" sid="2966607616665436">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="Nickel_Pickup" sid="1850859314087831">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1173723328310988" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Nickel.png">
+                            <collision-poly>
+                                <point x="0.107143" y="0.1875" />
+                                <point x="0.5" y="0" />
+                                <point x="0.892857" y="0.1875" />
+                                <point x="1" y="0.5" />
+                                <point x="0.910714" y="0.84375" />
+                                <point x="0.5" y="1" />
+                                <point x="0.0892857" y="0.84375" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Penny_Pickup" sid="2518299985097739">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4217297445916904" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Penny.png">
+                            <collision-poly>
+                                <point x="0.107143" y="0.1875" />
+                                <point x="0.5" y="0" />
+                                <point x="0.892857" y="0.1875" />
+                                <point x="1" y="0.5" />
+                                <point x="0.910714" y="0.84375" />
+                                <point x="0.5" y="1" />
+                                <point x="0.0892857" y="0.84375" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Dime_Pickup" sid="1951496141953505">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3639157865997583" speed="5">
+                        <frame duration="1" hotspotX="0.507937" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Dime.png">
+                            <collision-poly>
+                                <point x="0.111111" y="0.194444" />
+                                <point x="0.492063" y="0" />
+                                <point x="0.888889" y="0.194444" />
+                                <point x="0.984127" y="0.5" />
+                                <point x="0.904762" y="0.833333" />
+                                <point x="0.492063" y="1" />
+                                <point x="0.0793651" y="0.861111" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Money" sid="7578388846156575">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4949235770638963" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Money.png">
+                            <collision-poly>
+                                <point x="0.18" y="0.18" />
+                                <point x="0.5" y="0.044" />
+                                <point x="0.82" y="0.18" />
+                                <point x="0.946" y="0.5" />
+                                <point x="0.812" y="0.812" />
+                                <point x="0.5" y="0.962" />
+                                <point x="0.188" y="0.812" />
+                                <point x="0.054" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-type name="WebStorage" sid="1510269620771624">
+            <plugin id="WebStorage" />
+        </object-type>
+        <object-type name="Gamepad" sid="996683554706134">
+            <plugin id="gamepad" />
+        </object-type>
+        <object-type name="Keyboard" sid="4436305314906168">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Mouse" sid="3506161195311074">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Touch" sid="2463496682349194">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="Audio" sid="2722091819329769">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="Browser" sid="3498868852026895">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type name="Background" sid="1440010652188119">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="8982518264791455">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1795449990398372" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Boss\Desktop\level ding.png">
+                        <collision-poly>
+                            <point x="0.538281" y="0.898611" />
+                            <point x="0.538867" y="0.861806" />
+                            <point x="0.999219" y="0.863889" />
+                            <point x="0.999219" y="1" />
+                            <point x="0.516406" y="1" />
+                            <point x="0.407813" y="1" />
+                            <point x="0.235937" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0.00138915" />
+                            <point x="1" y="0" />
+                            <point x="0.999493" y="0.893723" />
+                            <point x="0.913049" y="0.893001" />
+                            <point x="0.913599" y="0.258225" />
+                            <point x="0.538135" y="0.258116" />
+                            <point x="0.537207" y="0.177344" />
+                            <point x="0.460889" y="0.177821" />
+                            <point x="0.460351" y="0.254688" />
+                            <point x="0.0878906" y="0.257986" />
+                            <point x="0.0875" y="0.45625" />
+                            <point x="0.0775391" y="0.456424" />
+                            <point x="0.0780274" y="0.592621" />
+                            <point x="0.0876465" y="0.594054" />
+                            <point x="0.0862061" y="0.862825" />
+                            <point x="0.273828" y="0.862153" />
+                            <point x="0.460938" y="0.863889" />
+                            <point x="0.460157" y="0.898611" />
+                            <point x="0.498438" y="0.898611" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Function" sid="8497856451839798">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="Score_Text" sid="4847923277344579">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Score_Number" sid="3838593948557831">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="SettingsMenu" sid="1307512274640236">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9907002762510894" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\SettingsMenu.png">
+                        <collision-poly>
+                            <point x="0.155" y="0.155" />
+                            <point x="0.5" y="0.1075" />
+                            <point x="0.845" y="0.155" />
+                            <point x="0.845" y="0.845" />
+                            <point x="0.5" y="0.8925" />
+                            <point x="0.155" y="0.845" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Continue_Text" sid="2302081874563863">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Quit_Text" sid="65182329838674">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Leegblok_Inventory" sid="1178951891646793">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8017103130043301" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Harm\Desktop\Leegblok_Inventory.png">
+                        <collision-poly>
+                            <point x="0.1425" y="0.1425" />
+                            <point x="0.8575" y="0.1425" />
+                            <point x="0.865" y="0.865" />
+                            <point x="0.135" y="0.865" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="WebStorage" uid="1" />
+        <global-instance type="Gamepad" uid="2">
+            <properties>
+                <analog-deadzone>25</analog-deadzone>
+            </properties>
+        </global-instance>
+        <global-instance type="Keyboard" uid="3" />
+        <global-instance type="Mouse" uid="4" />
+        <global-instance type="Touch" uid="5">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Audio" uid="6">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+                <speed-of-sound>5000</speed-of-sound>
+                <doppler-factor>1</doppler-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="Browser" uid="7" />
+        <global-instance type="Function" uid="21" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
