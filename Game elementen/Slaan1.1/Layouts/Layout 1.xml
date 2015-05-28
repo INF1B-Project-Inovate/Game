@@ -4,8 +4,8 @@
     <sid>2050004320088284</sid>
     <event-sheet>Event sheet 1</event-sheet>
     <size>
-        <width>1708</width>
-        <height>960</height>
+        <width>1280</width>
+        <height>720</height>
     </size>
     <margins>
         <horizontal>500</horizontal>
@@ -95,7 +95,7 @@
                         </behavior-instance>
                         <behavior-instance type="8Direction">
                             <properties>
-                                <max-speed>200</max-speed>
+                                <max-speed>100</max-speed>
                                 <acceleration>600</acceleration>
                                 <deceleration>500</deceleration>
                                 <directions>4 directions</directions>
@@ -108,11 +108,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>488.430969238</x>
-                        <y>192.046432495</y>
+                        <x>482.563751221</x>
+                        <y>199.92086792</y>
                         <z>0</z>
-                        <width>26.291982651</width>
-                        <height>34.940662384</height>
+                        <width>45</width>
+                        <height>60</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.504950523</hotspotY>
@@ -130,11 +130,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>501.925292969</x>
-                        <y>191.254684448</y>
+                        <x>506.324584961</x>
+                        <y>203.134674072</y>
                         <z>0</z>
-                        <width>39.67698288</width>
-                        <height>19.222761154</height>
+                        <width>48.794029236</width>
+                        <height>24.980295181</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -443,14 +443,6 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="LineOfSight">
-                            <properties>
-                                <obstacles>Solids</obstacles>
-                                <range>10000</range>
-                                <cone-of-view>360</cone-of-view>
-                                <use-collision-cells>Yes</use-collision-cells>
-                            </properties>
-                        </behavior-instance>
                         <behavior-instance type="BoundToLayout">
                             <properties>
                                 <bound-by>Edge</bound-by>
@@ -460,11 +452,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>117.833267212</x>
-                        <y>244.609069824</y>
+                        <x>136.434768677</x>
+                        <y>219.471923828</y>
                         <z>0</z>
-                        <width>43.302726746</width>
-                        <height>58.517192841</height>
+                        <width>80.505737305</width>
+                        <height>108.791526794</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>

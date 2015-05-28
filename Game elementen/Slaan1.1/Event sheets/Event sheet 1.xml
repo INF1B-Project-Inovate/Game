@@ -834,7 +834,6 @@
                 </event-block>
                 <event-block sid="180044777793144">
                     <conditions>
-                        <condition id="15" name="On double-tap" sid="7564106275447651" type="Touch" />
                         <condition id="3" name="Compare frame" sid="79493311950491" type="Player">
                             <param id="0" name="Comparison">4</param>
                             <param id="1" name="Number">3</param>
@@ -842,6 +841,7 @@
                         <condition id="1" name="Is overlapping another object" sid="9678447286535509" type="Range">
                             <param id="0" name="Object">boss</param>
                         </condition>
+                        <condition id="-4" name="Trigger once while true" sid="9805289788446451" type="System" />
                     </conditions>
                     <actions>
                         <action id="-11" name="Subtract from" sid="3816394673136431" type="System">
@@ -948,16 +948,13 @@
                 <event-block sid="5579845163041186">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="5204135799121024" type="System">
-                            <param id="0" name="Interval (seconds)">1.0</param>
+                            <param id="0" name="Interval (seconds)">0.1</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action behavior="Pathfinding" id="0" name="Find path" sid="785534588283488" type="boss">
                             <param id="0" name="X">Player.X</param>
                             <param id="1" name="Y">Player.Y</param>
-                        </action>
-                        <action behavior="LineOfSight" id="0" name="Set range" sid="4336927980496895" type="boss">
-                            <param id="0" name="Range">850</param>
                         </action>
                     </actions>
                 </event-block>
