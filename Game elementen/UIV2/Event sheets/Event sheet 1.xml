@@ -1,0 +1,761 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable comment="Boss Key Variable" constant="0" name="Bosskey_Variable" sid="3879656252546306" static="0" type="number">0</variable>
+        <variable comment="Money Variable" constant="0" name="Money_Variable" sid="6562900656756168" static="0" type="number">0</variable>
+        <variable comment="Key Variable " constant="0" name="Key_Variable" sid="8214727984542901" static="0" type="number">0</variable>
+        <variable constant="0" name="touchID" sid="1701208694636303" static="0" type="number">-1</variable>
+        <variable constant="0" name="dist" sid="3214035071948091" static="0" type="number">0</variable>
+        <variable constant="0" name="cangle" sid="5793469877557767" static="0" type="number">0</variable>
+        <variable comment="distance the stick can move from center" constant="0" name="radius" sid="9452939418076768" static="0" type="number">15</variable>
+        <variable comment="deadzone sample" constant="0" name="deadzone" sid="8070216549786517" static="0" type="number">90</variable>
+        <event-block sid="2526610786297849">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2165914056337535" type="System" />
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Play" sid="4557520327618516" type="Audio">
+                    <param id="0" name="Audio file">Enmity_of_the_Dark_Lord_8-BIT_</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9480045144151139">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="3620621895633421" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="3818329111186698" type="Money_Text">
+                    <param id="0" name="Text">Money_Variable &amp; &quot;$&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="3935925153870043" type="Bosskey_UI_Text">
+                    <param id="0" name="Text">&quot;x&quot; &amp; Bosskey_Variable</param>
+                </action>
+                <action id="0" name="Set text" sid="3529796638203122" type="Key_UI_Text">
+                    <param id="0" name="Text">&quot;x&quot; &amp; Key_Variable</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="5887145532216375" title="LifeBar">
+            <sub-events>
+                <variable comment="Life % between 1 and 0. 1 = 100%, 0,50 = 50%, etc." constant="0" name="LifePercent" sid="3943776605923428" static="0" type="number">100</variable>
+                <event-block sid="4392457173852022">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="5294319045127959" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1126939953544209" type="System">
+                            <param id="0" name="Variable">LifePercent</param>
+                            <param id="1" name="Value">LifeValue.Value/100</param>
+                        </action>
+                        <action id="0" name="Call function" sid="1123582906604119" type="Function">
+                            <param id="0" name="Name">&quot;Lifebar.Update&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1013237217421716">
+                    <conditions>
+                        <condition id="0" name="On function" sid="2810092685582076" type="Function">
+                            <param id="0" name="Name">&quot;Lifebar.Update&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2918693565637843">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="941367350955947" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="2463819134360866" type="Blok1_1">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9510585645125352">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="7928969578608333" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="9725748335799709" type="Blok1_1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3538289034331754">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9796068558269516" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0.15</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="7767501895802212" type="Blok1_2">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6293329279890882">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="1633445421706204" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0.15</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="2144725748704676" type="Blok1_2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5741191693047546">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5261848926157714" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0.35</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="3161994815049209" type="Blok2_1">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1075714643904348">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5649011768358091" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0.35</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="4184470957405529" type="Blok2_1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1524897814170628">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9210781457840571" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0.55</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="8496918387087331" type="Blok2_2">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1301357197059286">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="4208417512212022" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0.55</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="3323897733648246" type="Blok2_2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9228147772159622">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="2004355190370605" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0.70</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="6426192386696031" type="Blok3_1">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1041467319844605">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="779821966640913" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0.70</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="8093190787971113" type="Blok3_1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6045716669373832">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6204753240811068" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0.85</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="5386482139917477" type="Blok3_2">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9457829248317052">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9696436119915876" type="System">
+                                    <param id="0" name="Variable">LifePercent</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0.85</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="5593203480307528" type="Blok3_2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="7408742002679969" title="Pickups">
+            <sub-events>
+                <event-block sid="6413270516199249">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="4941131957188354" type="player">
+                            <param id="0" name="Object">Bosskey_Pickup</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="9138352224062099" type="System">
+                            <param id="0" name="Variable">Bosskey_Variable</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5672889913761146" type="Bosskey_Pickup" />
+                        <action id="-15" name="Set visible" sid="1414667850660517" type="Bosskey_UI">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="8521137587955569" type="Bosskey_UI_Text">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2578809713351753">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="3959661196952276" type="player">
+                            <param id="0" name="Object">Key_Pickup</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="5454273116739257" type="System">
+                            <param id="0" name="Variable">Key_Variable</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="2762508910744732" type="Key_Pickup" />
+                        <action id="-15" name="Set visible" sid="1701384909679373" type="Key_UI">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="9500299672739697" type="Key_UI_Text">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2149205175535286">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="4090596060653022" type="player">
+                            <param id="0" name="Object">Penny_Pickup</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="3295805737626668" type="System">
+                            <param id="0" name="Variable">Money_Variable</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="7351591554505302" type="Penny_Pickup" />
+                    </actions>
+                </event-block>
+                <event-block sid="320354479108444">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="7795414153141989" type="player">
+                            <param id="0" name="Object">Nickel_Pickup</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="4439140285888916" type="System">
+                            <param id="0" name="Variable">Money_Variable</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="2624444581435276" type="Nickel_Pickup" />
+                    </actions>
+                </event-block>
+                <event-block sid="792470624109331">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="3989199668415495" type="player">
+                            <param id="0" name="Object">Dime_Pickup</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="7074483543589667" type="System">
+                            <param id="0" name="Variable">Money_Variable</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="1012106013672205" type="Dime_Pickup" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="3727601972672691" title="Inventory">
+            <sub-events>
+                <event-block sid="4072073084605172">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="7490669354587529" type="Touch">
+                            <param id="0" name="Object">InventoryIcon</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="7125736663132448" type="Leegblok_Inventory">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-41" name="Wait for signal" sid="7088887576648018" type="System">
+                            <param id="0" name="Tag">&quot;Inventory&quot;</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="305576579450251" type="Leegblok_Inventory">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="168957874477016">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="8302399060657396" type="Touch">
+                            <param id="0" name="Object">Leegblok_Inventory</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-42" name="Signal" sid="6080536086670893" type="System">
+                            <param id="0" name="Tag">&quot;Inventory&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2331777476229138" title="Menu">
+            <sub-events>
+                <event-block sid="5164350685556498">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="7682954068228635" type="Touch">
+                            <param id="0" name="Object">Settings</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set time scale" sid="1304380876221113" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="7719806891235544" type="Menu">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="3820214218441373" type="Continue_Text">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="4470587398059652" type="Quit_Text">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="4517283218094607" type="fanaRangeBox">
+                            <param id="0" name="X">-1000</param>
+                        </action>
+                        <action id="-41" name="Wait for signal" sid="7837016249262515" type="System">
+                            <param id="0" name="Tag">&quot;Settings&quot;</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="1379329696181706" type="System">
+                            <param id="0" name="Time scale">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="2867482638574718" type="Menu">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="771816648663266" type="Continue_Text">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="6369834453826195" type="Quit_Text">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="7052102592175637" type="Quit_Text">
+                            <param id="0" name="Text">&quot;Quit to main menu&quot;</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="3611465731609906" type="fanaRangeBox">
+                            <param id="0" name="X">214</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9201697636021034">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="8045839711576473" type="Touch">
+                            <param id="0" name="Object">Continue_Text</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-42" name="Signal" sid="808267353608498" type="System">
+                            <param id="0" name="Tag">&quot;Settings&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3582840474701515">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="616640566468131" type="Touch">
+                            <param id="0" name="Object">Quit_Text</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="6066618496646432" type="Quit_Text">
+                            <param id="0" name="Text">&quot;No going back now&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="1704141871927625" title="Controls">
+            <sub-events>
+                <event-group description="" sid="8648402018715771" title="Buttons">
+                    <sub-events>
+                        <event-block sid="7023807134276918">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="5045777996788032" type="Touch">
+                                    <param id="0" name="Object">Button_A</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="9326785152211608" type="ButtonB_Text">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="4090737580496954" type="ButtonA_Text">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="4286030366260028" type="System">
+                                    <param id="0" name="Seconds">3</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="6761829213671935" type="ButtonA_Text">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8050501772952387">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="1626605713608672" type="Touch">
+                                    <param id="0" name="Object">Button_B</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="6604210846402876" type="ButtonA_Text">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="1544793811347909" type="ButtonB_Text">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="2712788155495227" type="System">
+                                    <param id="0" name="Seconds">3</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="6700367245376721" type="ButtonB_Text">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="5087347458655297" title="Functions">
+                    <sub-events>
+                        <event-block sid="1755802595882388">
+                            <conditions>
+                                <condition id="0" name="On function" sid="2513697712617182" type="Function">
+                                    <param id="0" name="Name">&quot;ScaleX&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="2038583232091029" type="Function">
+                                    <param id="0" name="Value">CanvasToLayerX(&quot;HUD&quot;, touch.AbsoluteXForID(Function.Param(0)), touch.AbsoluteYForID(Function.Param(0)) )</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6899293570619937">
+                            <conditions>
+                                <condition id="0" name="On function" sid="6511856940241359" type="Function">
+                                    <param id="0" name="Name">&quot;ScaleY&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="9881984887913821" type="Function">
+                                    <param id="0" name="Value">CanvasToLayerY(&quot;HUD&quot;, touch.AbsoluteXForID(Function.Param(0)), touch.AbsoluteYForID(Function.Param(0)) )</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="Controls for thumbstick" sid="876188385966902" title="Thumbstick">
+                    <sub-events>
+                        <event-block sid="6106212053941148">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="2724786848126681" type="Touch">
+                                    <param id="0" name="Object">fanaRangeBox</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="4746241440650679" type="System">
+                                    <param id="0" name="Variable">touchID</param>
+                                    <param id="1" name="Value">touch.TouchID</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="8611253649488348" type="fanaPad">
+                                    <param id="0" name="X">Function.Call(&quot;ScaleX&quot;, touchID)</param>
+                                    <param id="1" name="Y">Function.Call(&quot;ScaleY&quot;, touchID)</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="855983971680973" type="fanaStick">
+                                    <param id="0" name="Object">fanaPad</param>
+                                    <param id="1" name="Image point (optional)">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6597203110046253">
+                            <conditions>
+                                <condition id="2" name="Is in touch" sid="7619413538377454" type="Touch" />
+                                <condition id="-14" name="Compare variable" sid="9660980491681511" type="System">
+                                    <param id="0" name="Variable">touchID</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="6318756157903108" type="System">
+                                    <param id="0" name="Variable">dist</param>
+                                    <param id="1" name="Value">distance(fanaPad.X, fanaPad.Y, &#x0D;&#x0A;Function.Call(&quot;ScaleX&quot;, touchID), &#x0D;&#x0A;Function.Call(&quot;ScaleY&quot;, touchID) )</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="2957146673116911" type="System">
+                                    <param id="0" name="Variable">cangle</param>
+                                    <param id="1" name="Value">angle(fanaPad.X, fanaPad.Y, &#x0D;&#x0A;Function.Call(&quot;ScaleX&quot;, touchID), &#x0D;&#x0A;Function.Call(&quot;ScaleY&quot;, touchID) )</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="441597705978206" type="fanaStick">
+                                    <param id="0" name="X">(cos(cangle) * (dist &lt; radius ? dist :  radius)) + fanaPad.X</param>
+                                    <param id="1" name="Y">(sin(cangle) * (dist &lt; radius ? dist :  radius)) + fanaPad.Y</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="9834952561698149" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Value">cangle</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="4635831164506716" type="fanaStick">
+                                    <param id="0" name="Instance variable">XP</param>
+                                    <param id="1" name="Value">((fanaStick.X - fanaPad.X)  / radius) * 100</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="4726727739516615" type="fanaStick">
+                                    <param id="0" name="Instance variable">YP</param>
+                                    <param id="1" name="Value">((fanaStick.Y - fanaPad.Y)  / radius) * 100</param>
+                                </action>
+                                <action id="0" name="Set text" sid="2684541910271708" type="fanaTXT">
+                                    <param id="0" name="Text">&quot;angle: &quot; &amp; floor(cangle) &amp;  &quot;     XP: &quot; &amp; floor(fanaStick.XP) &amp; &quot;     YP: &quot; &amp; floor(fanaStick.YP)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8077691043988733">
+                            <conditions>
+                                <condition id="1" name="On any touch end" sid="643450814206879" type="Touch" />
+                                <condition id="-14" name="Compare variable" sid="3562365651570959" type="System">
+                                    <param id="0" name="Variable">touchID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">touch.TouchID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="2257644177682857" type="fanaPad">
+                                    <param id="0" name="X">-1000</param>
+                                    <param id="1" name="Y">0</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="1982725399835725" type="fanaStick">
+                                    <param id="0" name="Object">fanaPad</param>
+                                    <param id="1" name="Image point (optional)">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="4668051367076343" type="fanaStick">
+                                    <param id="0" name="Instance variable">XP</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="8096233556920896" type="fanaStick">
+                                    <param id="0" name="Instance variable">YP</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="4132107086633929" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="4249150816839082" type="System">
+                                    <param id="0" name="Variable">touchID</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="3625701189665945" type="fanaTXT">
+                                    <param id="0" name="Text">&quot;fana&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="New sample using the conangle of the fanastick" sid="3650443723516727" title="SampleV2">
+                    <sub-events>
+                        <event-block sid="7615093934359309">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="7578158495106262" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">-35</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="3940244564099109" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">-135</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="8229547321733974" type="player">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="9362020467008469">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="4825394221406477" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">135</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="1610477106364064" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">-135</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="8940668152330933" type="player">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5189909235359512">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="8042184888894651" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">-35</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="1025619092818776" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="9521778181380454" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">35</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="6871919602535741" type="player">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9441944751271074">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="8693269741598379" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">35</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="6737803876028845" type="fanaStick">
+                                    <param id="0" name="Instance variable">conAngle</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">135</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="9483649013755208" type="player">
+                                    <param id="0" name="Control">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="Sample with deadzone variable" disabled="1" sid="1730663749388246" title="Sample">
+                    <sub-events>
+                        <event-block disabled="1" sid="8757353019221198">
+                            <conditions>
+                                <condition disabled="1" id="-7" name="Compare instance variable" sid="1070228937617433" type="fanaStick">
+                                    <param id="0" name="Instance variable">YP</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">-deadzone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="4324628893016996" type="player">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" disabled="1" sid="5874301346939421">
+                            <conditions>
+                                <condition disabled="1" id="-7" name="Compare instance variable" sid="5920476895568657" type="fanaStick">
+                                    <param id="0" name="Instance variable">YP</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">deadzone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="8106879190231381" type="player">
+                                    <param id="0" name="Control">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" disabled="1" sid="7919701512711581">
+                            <conditions>
+                                <condition disabled="1" id="-7" name="Compare instance variable" sid="9682798018983131" type="fanaStick">
+                                    <param id="0" name="Instance variable">XP</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">-deadzone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="3335222514568978" type="player">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" disabled="1" sid="5296675168017011">
+                            <conditions>
+                                <condition disabled="1" id="-7" name="Compare instance variable" sid="4893285135987193" type="fanaStick">
+                                    <param id="0" name="Instance variable">XP</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">deadzone</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="5696586196998456" type="player">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
