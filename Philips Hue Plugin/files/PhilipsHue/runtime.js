@@ -6,16 +6,11 @@ assert2(cr.plugins_, "cr.plugins_ not created");
 
 /////////////////////////////////////
 // Plugin class
-// *** CHANGE THE PLUGIN ID HERE *** - must match the "id" property in edittime.js
-//          vvvvvvvv
 cr.plugins_.PhilipsHue = function (runtime) {
     this.runtime = runtime;
 };
 
 (function () {
-    /////////////////////////////////////
-    // *** CHANGE THE PLUGIN ID HERE *** - must match the "id" property in edittime.js
-    //                            vvvvvvvv
     var pluginProto = cr.plugins_.PhilipsHue.prototype;
 
     /////////////////////////////////////
@@ -26,10 +21,6 @@ cr.plugins_.PhilipsHue = function (runtime) {
     };
 
     var typeProto = pluginProto.Type.prototype;
-
-    // called on startup for each object type
-    typeProto.onCreate = function () {
-    };
 
     /////////////////////////////////////
     // Instance class
@@ -53,27 +44,10 @@ cr.plugins_.PhilipsHue = function (runtime) {
 
     var instanceProto = pluginProto.Instance.prototype;
 
-    // called whenever an instance is created
-    instanceProto.onCreate = function () {
-        // note the object is sealed after this call; ensure any properties you'll ever need are set on the object
-        // e.g...
-    };
-
-    // only called if a layout object - draw to a canvas 2D context
-    instanceProto.draw = function (ctx) {
-    };
-
-    // only called if a layout object in WebGL mode - draw to the WebGL context
-    // 'glw' is not a WebGL context, it's a wrapper - you can find its methods in GLWrap.js in the install
-    // directory or just copy what other plugins do.
-    instanceProto.drawGL = function (glw) {
-    };
-
     //////////////////////////////////////
     // Conditions
     function Cnds() { };
 
-    // the example condition
     Cnds.prototype.isBridgeConnected = function () {
         return this.isBridgeConnected;
     };
@@ -82,6 +56,11 @@ cr.plugins_.PhilipsHue = function (runtime) {
         return this.isWhitelisted;
     };
 
+
+    /*  Check if there are sufficient lights to send commands to.
+     *  Three modes, mono, duo and triple.
+     *  Mono is the middle light, duo are the outer two and triple are all thre lights.
+     */
     Cnds.prototype.inLightMode = function (lightMode) {
         var length = Object.keys(this.usedLights).length;
         switch(lightMode) {
@@ -122,6 +101,9 @@ cr.plugins_.PhilipsHue = function (runtime) {
         return true;
     };
     
+    /*  
+     *  This generates a for loop in C5 used to populate all the listboxes
+     */
     Cnds.prototype.hasNextLight = function () {
         if(this.stopLoop == true)
             return false;
@@ -143,15 +125,19 @@ cr.plugins_.PhilipsHue = function (runtime) {
         return false;
     };
 
-    // ... other conditions here ...
-
+    // Put all conditions in the plugin
     pluginProto.cnds = new Cnds();
 
     //////////////////////////////////////
     // Actions
     function Acts() { };
 
-    // the example action
+    // ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! \\
+    //                                                 \\
+    //      All functions can be found in common.js    \\
+    //                                                 \\
+    // ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! \\
+
     Acts.prototype.autoConnectHueBridge = function () {
         MeetHueLookup(this);
     };
@@ -161,6 +147,7 @@ cr.plugins_.PhilipsHue = function (runtime) {
             this.bridgeIP = ip;
             checkPermission(this);
         } else {
+            // Trigger the connection failed trigger in edittime.js
             this.runtime.trigger(cr.plugins_.PhilipsHue.prototype.cnds.trigManConnectFailed, this);
         }
         
@@ -180,48 +167,43 @@ cr.plugins_.PhilipsHue = function (runtime) {
         setColor(this, lampSlot, Hue, Saturation, Brightness, Time);
     };
 
-    // ... other actions here ...
-
+    
     pluginProto.acts = new Acts();
 
     //////////////////////////////////////
     // Expressions
     function Exps() { };
 
-    // the example expression
-    Exps.prototype.BridgeIP = function (ret)	// 'ret' must always be the first parameter - always return the expression's result through it!
+    Exps.prototype.BridgeIP = function (ret)
     {
-        //ret.set_int(1337);				// return our value
-        // ret.set_float(0.5);			// for returning floats
-        ret.set_string(this.BridgeIP);		// for ef_return_string
-        // ret.set_any("woo");			// for ef_return_any, accepts either a number or string
+        ret.set_string(this.BridgeIP);		// return IP address of the PhilipsHue bridge
     };
 
-    Exps.prototype.isBridgeConnected = function (ret)    // 'ret' must always be the first parameter - always return the expression's result through it!
+    Exps.prototype.isBridgeConnected = function (ret)
     {
         ret.set_string(this.isBridgeConnected);
     };
 
-    Exps.prototype.isWhitelisted = function (ret)    // 'ret' must always be the first parameter - always return the expression's result through it!
+    Exps.prototype.isWhitelisted = function (ret)
     {
         ret.set_string(this.isWhitelisted);
     };
 
-    Exps.prototype.lights = function (ret)    // 'ret' must always be the first parameter - always return the expression's result through it!
+    Exps.prototype.lights = function (ret)
     {
         ret.set_string(JSON.stringify(this.lights));
     };
 
-    Exps.prototype.usedLights = function (ret)    // 'ret' must always be the first parameter - always return the expression's result through it!
+    Exps.prototype.usedLights = function (ret)
     {
         ret.set_string(JSON.stringify(this.usedLights));
     };
     
-    Exps.prototype.currentLightID = function (ret)    // 'ret' must always be the first parameter - always return the expression's result through it!
+    Exps.prototype.currentLightID = function (ret)
     {
-        ret.set_string(String(this.lights[this.lastID])); // return the light ID of the current thing
+        // String() used cause apperently set_string doesn't accept integers
+        ret.set_string(String(this.lights[this.lastID]));
     };
-    // ... other expressions here ...
 
     pluginProto.exps = new Exps();
 
