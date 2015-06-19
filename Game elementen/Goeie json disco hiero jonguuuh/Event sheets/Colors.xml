@@ -514,7 +514,7 @@
                 <condition id="-2" name="On start of layout" sid="6393500261199243" type="System" />
             </conditions>
             <actions>
-                <action disabled="1" id="0" name="Request URL" sid="3699296917988616" type="AJAX">
+                <action id="0" name="Request URL" sid="3699296917988616" type="AJAX">
                     <param id="0" name="Tag">&quot;getJSON&quot;</param>
                     <param id="1" name="URL">&quot;http://192.168.1.151/disco.php&quot;</param>
                 </action>
@@ -530,7 +530,7 @@
                 <action id="11" name="Load" sid="7458525087423727" type="Array">
                     <param id="0" name="JSON">AJAX.LastData</param>
                 </action>
-                <action disabled="1" id="-9" name="Set value" sid="5763622232560902" type="System">
+                <action id="-9" name="Set value" sid="5763622232560902" type="System">
                     <param id="0" name="Variable">do_disco</param>
                     <param id="1" name="Value">1</param>
                 </action>
