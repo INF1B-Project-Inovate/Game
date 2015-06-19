@@ -19,7 +19,7 @@
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="List" version="1">List</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
-        <plugin author="Pascal Drewes - Stenden University - INF1B" id="PhilipsHue" version="0.100000001">Philips Hue API</plugin>
+        <plugin author="Pascal Drewes - Stenden University - INF1B" id="PhilipsHue" version="1">Philips Hue API</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
