@@ -514,7 +514,7 @@
                 <condition id="-2" name="On start of layout" sid="6393500261199243" type="System" />
             </conditions>
             <actions>
-                <action id="0" name="Request URL" sid="3699296917988616" type="AJAX">
+                <action disabled="1" id="0" name="Request URL" sid="3699296917988616" type="AJAX">
                     <param id="0" name="Tag">&quot;getJSON&quot;</param>
                     <param id="1" name="URL">&quot;http://192.168.1.151/disco.php&quot;</param>
                 </action>
@@ -530,7 +530,7 @@
                 <action id="11" name="Load" sid="7458525087423727" type="Array">
                     <param id="0" name="JSON">AJAX.LastData</param>
                 </action>
-                <action id="-9" name="Set value" sid="5763622232560902" type="System">
+                <action disabled="1" id="-9" name="Set value" sid="5763622232560902" type="System">
                     <param id="0" name="Variable">do_disco</param>
                     <param id="1" name="Value">1</param>
                 </action>
@@ -825,8 +825,12 @@
                             <param id="0" name="Variable">knipperVar</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="0" name="Call function" sid="1940451410506006" type="Function">
-                            <param id="0" name="Name">&quot;healthbar&quot;</param>
+                        <action id="0" name="Call function" sid="9291119825492598" type="Function">
+                            <param id="0" name="Name">&quot;closeToVirus&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action disabled="1" id="0" name="Call function" sid="1940451410506006" type="Function">
+                            <param id="0" name="Name">&quot;bossRoom&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
                         <action disabled="1" id="-11" name="Subtract from" sid="4068425646483788" type="System">
@@ -841,6 +845,240 @@
                             <param id="1" name="Value">0</param>
                         </action>
                     </actions>
+                </event-block>
+                <event-block sid="5538816133476254">
+                    <conditions>
+                        <condition id="0" name="On function" sid="8133952787785493" type="Function">
+                            <param id="0" name="Name">&quot;bossRoom&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1961771663260273">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="6924439888854182" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="8528611013922449">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="8122367010523535" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set a light to a specific Color" sid="8948259742440723" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">20</param>
+                                    <param id="2" name="Saturation">254</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">0</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="1514508748458513" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">20</param>
+                                    <param id="2" name="Saturation">0</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="130750916369559">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="3202159758049567" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set a light to a specific Color" sid="4337232353280684" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">20</param>
+                                    <param id="2" name="Saturation">254</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">0</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="7226907802442983" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">1</param>
+                                    <param id="1" name="Hue">20</param>
+                                    <param id="2" name="Saturation">254</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">0</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="80170800864438" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">20</param>
+                                    <param id="2" name="Saturation">0</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">5</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="5208131359814949" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">1</param>
+                                    <param id="1" name="Hue">20</param>
+                                    <param id="2" name="Saturation">0</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3434605387695394">
+                    <conditions>
+                        <condition id="0" name="On function" sid="8813970542153595" type="Function">
+                            <param id="0" name="Name">&quot;closeToVirus&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="5500772318201191">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="6857667208547907" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="2693240056413831">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="5494144585465115" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set a light to a specific Color" sid="5326487888544561" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">0</param>
+                                    <param id="2" name="Saturation">0</param>
+                                    <param id="3" name="Brightness">0</param>
+                                    <param id="4" name="Time">0</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="2419425356344745" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">46000</param>
+                                    <param id="2" name="Saturation">254</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1459124122675699">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="1896654501089311" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set a light to a specific Color" sid="5490592022265882" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">0</param>
+                                    <param id="2" name="Saturation">0</param>
+                                    <param id="3" name="Brightness">0</param>
+                                    <param id="4" name="Time">0</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="6718645552191237" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">1</param>
+                                    <param id="1" name="Hue">0</param>
+                                    <param id="2" name="Saturation">0</param>
+                                    <param id="3" name="Brightness">0</param>
+                                    <param id="4" name="Time">0</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="8326350759014401" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">46000</param>
+                                    <param id="2" name="Saturation">254</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">0</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="7078776387677828" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">1</param>
+                                    <param id="1" name="Hue">46000</param>
+                                    <param id="2" name="Saturation">254</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9421927070784862">
+                    <conditions>
+                        <condition id="0" name="On function" sid="4599598739343013" type="Function">
+                            <param id="0" name="Name">&quot;chestRoom&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="367124460202141">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="8837646706558276" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="7380503361837994">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="6633182540457409" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set a light to a specific Color" sid="3835801856739747" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">0</param>
+                                    <param id="2" name="Saturation">0</param>
+                                    <param id="3" name="Brightness">0</param>
+                                    <param id="4" name="Time">3</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="9117552137301896" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">21000</param>
+                                    <param id="2" name="Saturation">254</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2989847718803145">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="7498240652403462" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set a light to a specific Color" sid="9420498531898834" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">1</param>
+                                    <param id="1" name="Hue">0</param>
+                                    <param id="2" name="Saturation">0</param>
+                                    <param id="3" name="Brightness">0</param>
+                                    <param id="4" name="Time">3</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="6105883326149612" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">0</param>
+                                    <param id="2" name="Saturation">0</param>
+                                    <param id="3" name="Brightness">0</param>
+                                    <param id="4" name="Time">3</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="7235426048244475" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">1</param>
+                                    <param id="1" name="Hue">21000</param>
+                                    <param id="2" name="Saturation">254</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">3</param>
+                                </action>
+                                <action id="3" name="Set a light to a specific Color" sid="831974947156746" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a slot">2</param>
+                                    <param id="1" name="Hue">21000</param>
+                                    <param id="2" name="Saturation">254</param>
+                                    <param id="3" name="Brightness">100</param>
+                                    <param id="4" name="Time">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
