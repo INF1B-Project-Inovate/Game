@@ -484,26 +484,19 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="3" name="Set a light to a specific Color" sid="3918485001451854" type="PhilipsHueAPI">
-                            <param id="0" name="Choose a slot">0</param>
-                            <param id="1" name="Hue">0</param>
-                            <param id="2" name="Saturation">254</param>
-                            <param id="3" name="Brightness">254</param>
-                            <param id="4" name="Time">5</param>
-                        </action>
-                        <action id="3" name="Set a light to a specific Color" sid="796827835479148" type="PhilipsHueAPI">
+                        <action id="3" name="Set a light to a specific Color" sid="4261577995903803" type="PhilipsHueAPI">
                             <param id="0" name="Choose a slot">1</param>
-                            <param id="1" name="Hue">0</param>
+                            <param id="1" name="Hue">0 </param>
                             <param id="2" name="Saturation">254</param>
-                            <param id="3" name="Brightness">254</param>
-                            <param id="4" name="Time">5</param>
+                            <param id="3" name="Brightness">0</param>
+                            <param id="4" name="Time">1</param>
                         </action>
-                        <action id="3" name="Set a light to a specific Color" sid="8356187733458173" type="PhilipsHueAPI">
-                            <param id="0" name="Choose a slot">2</param>
-                            <param id="1" name="Hue">0</param>
+                        <action id="3" name="Set a light to a specific Color" sid="5497410387542001" type="PhilipsHueAPI">
+                            <param id="0" name="Choose a slot">1</param>
+                            <param id="1" name="Hue">0 </param>
                             <param id="2" name="Saturation">254</param>
                             <param id="3" name="Brightness">254</param>
-                            <param id="4" name="Time">5</param>
+                            <param id="4" name="Time">20</param>
                         </action>
                     </actions>
                 </event-block>
@@ -841,6 +834,40 @@
                             <param id="1" name="Value">0</param>
                         </action>
                     </actions>
+                </event-block>
+                <event-block sid="4201370013090421">
+                    <conditions>
+                        <condition id="0" name="On function" sid="5038569948849567" type="Function">
+                            <param id="0" name="Name">&quot;chestVOEM&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9728403752225248">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="9537211104945829" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="2682943602266901">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="5922490827553468" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="6183523523314384">
+                            <conditions>
+                                <condition id="3" name="Which lights are available" sid="8166146129839246" type="PhilipsHueAPI">
+                                    <param id="0" name="Choose a lightmode">2</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
