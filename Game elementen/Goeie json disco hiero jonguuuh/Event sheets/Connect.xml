@@ -178,10 +178,10 @@
                             <param id="0" name="Text">PhilipsHueAPI.currentLightID</param>
                         </action>
                         <action id="7" name="Add item" sid="9389478948529102" type="lstMiddle">
-                            <param id="0" name="Text">PhilipsHueAPI.currentLightID</param>
+                            <param id="0" name="Text">str(int(PhilipsHueAPI.currentLightID) + 1)</param>
                         </action>
                         <action id="7" name="Add item" sid="6098661159201471" type="lstRight">
-                            <param id="0" name="Text">PhilipsHueAPI.currentLightID</param>
+                            <param id="0" name="Text">str(int(PhilipsHueAPI.currentLightID) + 2)</param>
                         </action>
                     </actions>
                 </event-block>
